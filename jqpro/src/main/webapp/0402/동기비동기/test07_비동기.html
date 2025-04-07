@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../../css/public.css">
+<script src="../../js/jquery-3.7.1.js"></script>
+<style>
+
+</style>
+<script>
+function login(userId, fn) {
+	setTimeout(() => {
+		console.log("userId를 통해 name을 가져오기");
+		const vname = "가나다";
+		fn(vname);
+	}, 3000);
+}
+
+function addToCart(product, fn) {
+	setTimeout(() => {
+		fn(product);
+	}, 2000);
+}
+
+function makePayment(cardNo, product, fn) {
+	setTimeout(() => {
+		fn(cardNo, product);
+	}, 1000);
+}
+
+// 작업 순서 보장 불가
+/* const proc1 = () => {
+	login("a001", function(userName) { 
+		console.log(userName, "님 환영합니다.");
+	});
+	addToCart("딸기", function(product) {
+		console.log(`${product}를 장바구니에 넣었습니다.`);
+	});
+	makePayment("1234-1234-1234-1234", "딸기", function(cardNo, product) {
+		console.log(`${cardNo.slice(0, 7)}으로 ${product}를 구매 했어요.`);
+	});
+} */
+
+const proc1 = () => {
+	// 콜백지옥 예시
+	login("a001", function(userName) {
+		console.log(userName, "님 환영합니다.");
+		addToCart("딸기", function(product) {
+			console.log(`${product}를 장바구니에 넣었습니다.`);
+			makePayment("1234-1234-1234-1234", "딸기", function(cardNo, product) {
+				console.log(`${cardNo.slice(0, 7)}으로 ${product}를 구매 했어요.`);
+				/* 기능 추가에 따라서 콜백이 계속 발생하게됨.
+					reviewPro(function() {
+					getCoupon(() => {
+						
+					});
+				}); */
+			});
+		});
+	});
+}
+
+</script>
+</head>
+<body>
+	<div class="box">
+		<h3></h3>
+		<input type="button" value="확인" onclick="proc1()"> <br> <br>
+		<div id="result1"></div>
+	</div>
+</body>
+</html>

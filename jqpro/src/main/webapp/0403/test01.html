@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.js"></script>
+<style>
+
+</style>
+<script>
+function login(userId) {
+	return new Promise (function(resolve, reject) {
+		setTimeout(() => {
+			console.log("userId를 통해 name을 가져오기");
+			const vname = "가나다";
+			
+			if(vname != null) {
+				resolve(vname);
+			}
+			else {
+				reject(new Error("유저 정보 없음"));
+			}
+		}, 3000);		
+	});
+}
+
+function addToCart(product) {
+	return new Promise ( (resolve, reject) => {
+		setTimeout(() => {
+			if(product) {
+				resolve(product);
+			}
+			else {
+				reject(new Error("상품 없음"));
+			}
+		}, 1000);		
+	});
+}
+	
+function makePayment(cardNo, product) {
+	return new Promise ((resolve, reject) => {
+		setTimeout(() => {
+			if(cardNo.length != 12) {
+				reject(new Error("잘못된 카드 번호 입니다."));
+				return false;
+			}
+			
+			if(!product) {
+				reject(new Error("상품을 넣어주세요."));
+				return false;
+			}
+			data = product;
+			// 리턴될 데이터가 여러개의 항목으로 구성될 때는 객체 또는 배열로 구성한다.
+			data = {no : cardNo, prod : product};
+			resolve(data);
+		}, 2000);
+	});
+}
+
+/* login("a001")
+.then((result) => {
+	console.log(`${result}님 안녕하세요`);
+})
+.catch((err) => {
+	console.log(err);	
+});
+
+addToCart("딸기")
+.then((data) => {
+	console.log(`${data}를 장바구니에 넣었어요.`);
+})
+.catch((err) => {
+	console.log(err);	
+});
+
+makePayment("123412341234", "딸기")
+.then(result => {
+	console.log(`${result.no}번호로 ${result.prod}를 결제했습니다.`);
+})
+.catch(err => {
+	console.log();	
+}); */
+
+const proc1 = () => {
+ 	login("철수")
+	.then(result => {
+		console.log(`${result}님 안녕하세요.`);
+		return addToCart("딸기");
+	})
+	.then(data => {
+		console.log(`${data}를 장바구니에 넣었어요`);
+		return makePayment("123412341234", "딸기");
+	})
+	.then(result => {
+		console.log(`${result.no}번호로 ${result.prod}를 결제했습니다.`);
+	})
+	.catch(err => {
+		console.log(err);
+	})
+}
+
+</script>
+</head>
+<body>
+	<div class="box">
+		<h3></h3>
+		<input type="button" value="확인" onclick="proc1()"> <br> <br>
+		<div id="result1"></div>
+	</div>
+</body>
+</html>

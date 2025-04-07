@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../../css/public.css">
+<style>
+</style>
+
+<script>
+// promise의 상태를 알아보기 위한 코드 (rejected 상태 확인)
+
+const proc1 = () => {
+	const promise = new Promise((resolve, reject) => {
+		setTimeout(() => {
+			//const data = {name : "가나다"};
+			const data = null;
+			
+			if(data != null) resolve(data);
+			else reject(new Error("Data 없음"));
+			
+		}, 1000);
+	});
+	
+	// reject가 호출되었고, 에러발생 상태로
+	// rejected 상태의 결과값은 "Error : 에러문구" 가 출력됨.
+	setTimeout(() => {
+		console.log(promise);
+	}, 2000);
+}
+</script>
+</head>
+<body>
+	<div class="box">
+		<h3></h3>
+		<input type="button" value="확인" onclick="proc1()"> <br> <br>
+		<div id="result1"></div>
+	</div>
+</body>
+</html>

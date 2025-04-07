@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.js"></script>
+<style>
+span {
+	background: pink;
+}
+</style>
+<script>
+	$(document).ready(function() {
+		// html은 태그를 포함하여 첫 요소만 가져옴
+		$('#btn3').on('click', function() {
+			str = ($('.box2 p').html());
+			$('#result2').html(str);
+		})
+		
+		// 반복문을 이용하여 전체를 대상으로 가져오기
+		$('#btn4').on('click', function() {
+			str = "";
+			$('.box2 p').each(function(i, v){
+				str += $(v).html() + "<br>";
+// 				str += $('.box2 p').eq(i).html() + "<br>";
+			});
+			
+// 			$('.box2 p').each(function(){
+// 				str += $(this).html() + "<br>";
+// 			});
+
+			$('#result2').html(str);
+		})
+		
+		//text는 문자만 가져옴
+		$('#btn5').on('click', function() {
+			str = ($('.box2 p').text());
+			$('#result2').text(str);
+		})
+		
+		
+		// jQuery방식
+		// $('#btn').on('click', function() {});
+		
+		// dom 객체변수의 이벤트 핸들러 방식
+		// btn1 = document.getElementById('btn1');
+		// btn1.addEventListener('click', function() {});
+		
+		// dom 객체변수를 jQuery변수로 변환
+		btn1 = document.getElementById('btn1');
+		$(btn1).on('click', function() {
+			alert($('body').html());
+		})
+		
+		btn2 = document.getElementById('btn2');
+		$(btn2).on('click', function() {
+			alert($('body').text());
+		})
+	})
+	
+</script>
+</head>
+<body>
+	<div class="box box1">
+		<h3>
+		body태그를 대상으로
+		html() : 태그를 포함한 모든 내용 가져오기<br>
+		text() : 태그를 빼고 모든 내용 가져오기
+		</h3>
+		<input type="button" value="html" id="btn1"> 
+		<input type="button" value="text" id="btn2"> <br> <br>
+		<div id="result1"></div>
+	</div>
+	
+	<div class="box box2">
+		<h3>
+		p태그를 대상으로 <br>
+		html() : 태그를 포함한 첫 번째 내용 가져오기 <br>
+				 반복문을 사용하여 모든 내용을 가져오기 <br>
+		text() : 태그를 빼고 모든 내용 가져오기
+		</h3>
+		
+		<p>1 <span> 홍길동 </span></p>
+		<p>2 <span> 홍매화 </span></p>
+		<p>3 <span> 진달래 </span></p>
+		
+		<input type="button" value="html(단일)" id="btn3">
+		<input type="button" value="html(전체)" id="btn4">
+		<input type="button" value="text" id="btn5"> <br> <br>
+		<div id="result2"></div>
+	</div>
+</body>
+</html>

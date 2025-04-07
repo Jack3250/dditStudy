@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.js"></script>
+<style>
+.box input[type=button]{
+	width: 150px;
+}
+</style>
+<script>
+	$(function() {
+		let cnt = 0;
+		// bind 방식 - 기존의 구성 요소에만 적용
+		$('#btn1').on('click', () => {
+			cnt ++;
+			let bbtn = $(`<input type="button" class="bbtn" value="새 bind 버튼${cnt}">`);
+			let dbtn = $(`<input type="button" class="dbtn" value="새 delegate 버튼${cnt}">`);
+			$('#result1').append(bbtn);
+			$('#result1').append(dbtn);
+		});
+		
+		// delegate 방식 - 기존 구성요소 및 새로 생성된 요소에 적용
+		$(document).on('click', '#btn2', () => {
+			$('#btn1').off('click');
+		});
+		
+		// bind 방식이라 작동하지 않음
+		$('.bbtn').on('click', function() {
+			vr = Math.floor(Math.random() * 256);
+			vg = Math.floor(Math.random() * 256);
+			vb = Math.floor(Math.random() * 256);
+			$('#result2').css('background', `rgb(${vr}, ${vg}, ${vb})`);
+		});
+		
+		// delegate 방식
+		$(document).on('click', '.dbtn', function() {
+			vr = Math.floor(Math.random() * 256);
+			vg = Math.floor(Math.random() * 256);
+			vb = Math.floor(Math.random() * 256);
+			$('#result2').css('background', `rgb(${vr}, ${vg}, ${vb})`);
+		});
+	});
+</script>
+</head>
+<body>
+	<div class="box">
+		<h3>추가버튼 클릭시 새로운 버튼을 생성<br>
+		새로운 버튼을 클릭하면 아래 div 요소의 배경색을 랜덤으로 변경<br>
+		bind 기능과 delegate 기능을 비교실행<br>
+		bind기능 - 새로운 버튼의 에벤트 실행안됨<br>
+		delegate기능 - 새로운 버튼의 이벤트 실행 됨 비교 실행</h3>
+		
+		<input type="button" value="추가" id="btn1">
+		<input type="button" value="해제" id="btn2"> <br> <br>
+		<div id="result1"></div>
+		<div id="result2"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.js"></script>
+<script>
+$(function(){
+	// 본문(body태그)에서 action과 method속성 없이도 가능
+	//===============================================================
+	
+	//get- 동기 - submit 이벤트----------------
+	$('#ffget').on('submit',function(){
+		$('#ffget').attr('action', "submitTest.jsp");
+		$('#ffget').attr('method', "get");
+		
+		//보내는 데이터를 가공 할 수 없음
+		// $('#ffget').attr('action', "submitTest.jsp?fname=1234&ftel=5678");
+		//이렇게 보내도 적용안됨, form 입력데이터로 보내짐
+	});  
+	
+	//post-동기 - submit 이벤트----------------
+   $('#ffpost').on('submit',function(){
+		$('#ffpost').attr('action', "submitTest.jsp");
+		$('#ffpost').attr('method', "post");
+	});  
+	//===============================================================
+	
+	//===============================================================
+	//get방식 수행 - 비동기 요청----------------
+	$('#asyget').on('click', function(){
+		const xhr = new XMLHttpRequest();
+		
+		//입력 한 이름과 전화번호 가져오기
+		let vname = $('#ffaget #name').val().trim();
+		let vtel = $('#ffaget #tel').val().trim();
+		
+		//요청    get방식의 test1.jsp 파일에 fname파라미터에 vname을 ftel파라미터에 vtel을 입력
+		xhr.open('get', 'test1.jsp?fname=' + vname + '&ftel=' + vtel, true);
+		// 입련된 파라미터 및 action과 method를 전송
+		xhr.send();
+		
+		//응답
+		xhr.onreadystatechange = function(){
+			alert(this.readyState);
+			if(this.readyState == 4 &&  this.status == 200){
+				// 응답 메세지를 res 변수에 대입하여
+				res = this.responseText;
+				// id가 result1인 요소에 res를 html형식으로 입력
+				$('#result1').html(res);
+			}
+		}
+	});
+	
+	// post로 수행하는 비동기  이벤트---------------
+	$('#asypost').on('click', ()=>{
+		const xhr = new XMLHttpRequest();
+		
+		// 입력 한 이름과 전화번호 가져오기
+		let  vname = $('#ffapost #name').val().trim();
+		let vtel = $('#ffapost #tel').val().trim();
+		
+		//-----------------------
+		
+		// 요청
+		// fname과 ftel을 데이터로 만듦
+		data = 'fname=' + vname + '&ftel=' + vtel
+		// post방식의 test1.jsp파일을 열어서
+		xhr.open('post', 'test1.jsp',  true);
+		// requestHeader를 설정하고
+		xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		// data를 보냄
+		xhr.send(data);
+		
+		//응답
+		xhr.onload = function(){
+			// 상태가 완료되어있고, 정상인 상황이면
+			if(this.readyState == 4  && this.status == 200){
+				// 응답 메세지를 res 변수에 대입하여
+				res = this.responseText;
+				// id가 result1인 요소에 res를 html형식으로 입력
+				$('#result2').html(res);
+			}
+		}
+	});
+	//===============================================================
+});
+</script>
+
+<style>
+.box {
+	width: 60%;
+	padding: 20px;
+}
+
+label {
+	display: inline-block;
+	width: 70px;
+	height: 20px;
+}
+</style>
+</head>
+<body>
+	<div class="box">
+		<h3>동기 전송 - get</h3>
+		동기 실행 : 별도의 페이지를 로드하여 결과를 받는다<br>
+		input type="submit" <br> <br>
+		<!-- action="submitTest.jsp" method="get" -->
+		<form id="ffget">
+			<label>이름</label> <input type="text" name="name" id="name"><br>
+			<label>전화번호</label> <input type="text" name="tel" id="tel"><br>
+			<br>
+			<input type="submit" value="동기get">
+		</form>
+	</div>
+
+	<div class="box">
+		<h3>동기 전송 - post</h3>
+		동기 실행 : 별도의 페이지를 로드하여 결과를 받는다<br>
+		input type="submit" <br> <br>
+		<!-- action="submitTest.jsp" method="post" -->
+		<form id="ffpost">
+			<label>이름</label> <input type="text" name="name" id="name"><br>
+			<label>전화번호</label> <input type="text" name="tel" id="tel"><br>
+			<br>
+			<input type="submit" value="동기post">
+		</form>
+	</div>
+
+	<div class="box">
+		<h3>비동기 전송 - get</h3>
+		비동기 전송 : 페이지 이동없이 결과를 출력 - result1에 출력 <br> <br>
+		<form id="ffaget">
+			<label>이름</label> <input type="text" name="name" id="name"><br>
+			<label>전화번호</label> <input type="text" name="tel" id="tel"><br>
+			<br>
+			<input type="button" value="비동기get" id="asyget">
+		</form>
+		<br><br>
+		<div id="result1"></div>
+	</div>
+
+	<div class="box">
+		<h3>비동기 전송 - post</h3>
+		비동기 전송 : 페이지 이동없이 결과를 출력 - result2에 출력 <br>
+		post전송시 setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		<br> <br>
+		<form id="ffapost">
+			<label>이름</label> <input type="text" name="name" id="name"><br>
+			<label>전화번호</label> <input type="text" name="tel" id="tel"><br>
+			<br>
+			<input type="button" value="비동기post" id="asypost">
+		</form>
+		<br><br>
+		<div id="result2"></div>
+	</div>
+</body>
+</html>

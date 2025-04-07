@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.7.1.js"></script>
+<style>
+	#show {
+		display: none;
+	}
+</style>
+<script>
+// $(document).ready(function () {
+	//아래와 같이 대체 가능
+$(function(){
+	
+	//보이기 버튼을 클릭하면
+	$('#show').on('click', function() {
+		$('#result1 h2').show();
+		$(this).hide();
+	})	
+	
+	
+	// onclick 사용
+	$('#result1 h2').on('click', function() {
+		// $(this).css('display', 'none');
+		// this.style.display = "none";
+		$(this).hide();
+		
+		// 비교 - 보이는 h2의 갯수
+		if($('h2:visible').length < 1){
+			$('#show').show();
+		}
+	});
+	
+	/*
+	// EventListener 사용
+	hlist = $('#result1 h2');
+	for(i=0; i<hlist.length; i++) {
+		hlist[i].addEventListener('click', function() {})
+		// addEventListener는 Dom메소드이기 때문에 eq(i)를 사용하는 jQuery에 사용 불가
+// 		hlist.eq(i).addEventListener('click', function() {})
+	}
+	*/
+	
+})
+</script>
+</head>
+<body>
+	<div class="box">
+		<h3>h2요소를 클릭하면 사라지도록 한다. <br>
+		전부 사라지면(보이는 갯수 0) 버튼이 나타난다. <br>
+		버튼을 클릭하면 사라졌던 h2요소가 나타나고, 버튼은 감춤 </h3>
+		<input type="button" value="초기화" id="show">
+			<div id="result1">
+			<h2>클릭하면 사라집니다1.</h2>
+			<h2>클릭하면 사라집니다2.</h2>
+			<h2>클릭하면 사라집니다3.</h2>
+			<h2>클릭하면 사라집니다4.</h2>
+			<h2>클릭하면 사라집니다5.</h2>
+			<h2>클릭하면 사라집니다6.</h2>
+			<h2>클릭하면 사라집니다7.</h2>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.js"></script>
+<style>
+</style>
+<script>
+	$(document).ready(function() {
+		$('#btn1').on('click', function() {
+			//title에 korea가 포함되는 모든 요소
+			$('p[title *= korea]').css('color', 'red');
+			
+			//title에 korea단어가 포함되는 모든 요소
+			$('p[title ~= korea]').css('background', 'lime');
+			
+			//title에 무궁화와 같거나 무궁화- 로 시작하는 모든 요소
+			$('p[title |= 무궁화]').css('font-size', '1.5rem');
+		});
+	});
+</script>
+</head>
+<body>
+	<div class="box">
+		<h3></h3>
+		<input type="button" value="확인" id="btn1"> <br> <br>
+		<div id="result1">
+			<p title="무궁화">무궁화 꽃이 피었습니다</p>
+			<p title="진달래">무궁화 꽃이 피었습니다</p>
+			<p title="수선화">무궁화 꽃이 피었습니다</p>
+			<p title="무궁화-korea">무궁화 꽃이 피었습니다</p>
+			<p title="korea123">무궁화 꽃이 피었습니다</p>
+			<p title="korea 123">무궁화 꽃이 피었습니다</p>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../../css/public.css">
+<script src="../../js/jquery-3.7.1.js"></script>
+<style>
+
+</style>
+<script>
+function login(id, pass, fn) {
+	setTimeout(() => {
+		// 파라미터로 전달받은 id와 pass를 검증
+		console.log("로그인 여부 확인");
+		let user = {uname : "가나다", tel : "000-0000-0000"};
+		
+		fn(user);
+		
+	}, 2000);
+}
+
+const proc1 = () => {
+	/* login("a001", "12345678", function(user) {
+		console.log(user.uname, user.tel);	
+	}); */
+	
+	login("a001", "12345678", function({uname, tel}) {
+		console.log(uname, tel);	
+	});
+}
+</script>
+</head>
+<body>
+	<div class="box">
+		<h3></h3>
+		<input type="button" value="확인" onclick="proc1()"> <br> <br>
+		<div id="result1"></div>
+	</div>
+</body>
+</html>
