@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.js"></script>
+<style>
+.box div {
+	background: yellow;
+}
+</style>
+<script>
+	$(function() {
+		$('#btn1').on('click', function() {
+			$('#result1').empty();
+		});
+		
+		$('#btn2').on('click', function() {
+			$('#result2').remove();
+		});
+	})
+</script>
+</head>
+<body>
+	<div class="box">
+		<h3></h3>
+		<input type="button" value="empty" id="btn1">
+		<input type="button" value="remove" id="btn2"> <br> <br>
+		<div id="result1">
+			<p>1번의 첫 번째 p태그 문단입니다.</p>
+		</div>
+		<div id="result2">
+			<p>2번의 첫 번째 p태그 문단입니다.</p>
+		</div>
+	</div>
+</body>
+</html>

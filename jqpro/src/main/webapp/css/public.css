@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+form {
+	background: #f1fafd;
+	border: 5px solid yellow;
+	padding: 20px;
+}
+
+.box {
+	border: 1px solid blue;
+	margin: 10px;
+	padding: 10px;
+}
+
+.box input[type=button],
+.box button[type=button] {
+	width: 100px;
+	height: 40px;
+	background: blue;
+	color: white;
+	border-radius: 20px;
+}
+
+.box div {
+	border: 1px dotted orange;
+	width: 80%;
+	padding: 20px;
+	margin: 10px;	
+}

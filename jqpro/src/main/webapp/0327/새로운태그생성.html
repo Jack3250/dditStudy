@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.js"></script>
+<style>
+img {
+	width: 100px;
+	height: 100px;
+	margin: 2px;
+}
+</style>
+<script>
+	let arr = [ "image.1.jpg", "image.2.jpg", "image.3.jpg", "image.4.jpg",
+			"image.5.jpg", "image.6.jpg", "image.7.jpg", "국화1.jpg", "국화.jpg",
+			"국화2.jpg" ];
+
+	$(function() {
+		$('#btn2').on('click', function() {
+
+			let rnd = Math.floor(Math.random() * arr.length);
+
+			$('<img>', {
+				src : '../images/' + arr[rnd],
+				alt : arr[rnd],
+				click : function() {
+					$(this).css('border', '2px solid red');
+				}
+			}).appendTo($('#result2'));
+		});
+
+		// box1 ==================================================
+		$('#btn1').on('click', function() {
+			// p태그 생성 1
+			/*
+			ptag = $('<p class="aa">Hello jQuery</p>');
+			$('#result1').append(ptag);
+			
+			$('<p class="aa">Hello jQuery</p>').appendTo($('#result1'));
+			
+			$('#result1').append($('<p class="aa">Hello jQuery</p>'));
+			 */
+
+			// p태그 생성 2
+			ptag2 = $('<p></p>', {
+				"class" : "aa",
+				"text" : "Hello jQuery",
+				"click" : function() {
+					$(this).css('background', 'yellow')
+				}
+			});
+
+			$(ptag2).appendTo($('#result1'));
+
+		});
+
+		// 새롭게 생성된 요소에 대한 이벤트는 bind방식이 아닌
+		// delegate 방식으로 처리
+		$(document).on('click', '.aa', function() {
+			$(this).css('background', 'yellow');
+
+		});
+
+		// bind 방식
+		// 	$('.aa').on('click', function() {
+		// 		$(this).css('background', 'yellow');		
+		// 	});
+		// box1 ==================================================
+	});
+</script>
+</head>
+
+<body>
+	<div class="box">
+		<h3></h3>
+		<input type="button" value="확인" id="btn1"> <br> <br>
+		<div id="result1"></div>
+	</div>
+	
+	<div class="box">
+		<h3></h3>
+		<input type="button" value="이미지추가" id="btn2"> <br> <br>
+		<div id="result2"></div>
+	</div>
+</body>
+</html>

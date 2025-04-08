@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.js"></script>
+<style>
+
+</style>
+<script>
+	$(function() {
+		let adcnt = 1; 
+		$('#ad').on('click', function() {
+			let dataValue = $(this).data('temp');
+			console.log(dataValue, typeof dataValue);
+			
+			dataValue++;
+			adcnt++;
+			console.log(dataValue===adcnt);
+			
+			$(this).data('temp', dataValue);
+			$('#result1').text(dataValue);
+		});
+		
+		let atcnt = 1;
+		$('#at').on('click', function() {
+			let attrValue = $(this).attr('data-temp');
+			console.log(attrValue, typeof attrValue);
+			
+			attrValue++;
+			atcnt++;
+			console.log(attrValue===atcnt);
+			
+			$(this).attr('data-temp', attrValue);
+			$('#result2').text(attrValue);
+		});
+		
+		$('#addr').on('change', function(){
+			// 선택한 값 추출
+			let vaddr = $('option:selected', this).val();
+			
+			code = ""; // 출력내용
+			
+			// span태그 하나씩 비교
+			$('span').each(function(i, v) {
+				// span주소와 selct주소값 비교
+				if($(this).data('address') == vaddr) {
+					info = $(this).data();
+					console.log(info);
+					
+					/*
+					code += `이름 : ${info.name} &nbsp;&nbsp;
+								주소 : ${info.address} &nbsp;&nbsp;
+								번호 : ${info.code} <br>`
+					*/
+					
+					entrie = Object.entries(info); //entrie 변수는 [key, value] 형태의 배열
+					for(let [k, v] of entrie) {
+						code += `${k} : ${v} &nbsp;&nbsp;&nbsp;`
+					}
+					code += "<br>";
+				}
+			});
+			$('#result3').html(code);
+		});
+	});
+</script>
+</head>
+<body>
+	<div class="box">
+		<h3></h3>
+		<a href="#" id="ad" data-temp="1" target="_self">증가 data</a>
+		<a href="#" id="at" data-temp="1" target="_self">증가 attr</a>
+		<div id="result1"></div>
+		<div id="result2"></div>
+	</div>
+	
+	<div class="box">
+		<h3>select에서 선택한 주소와 같은 데이터를 span태그에서 가져온다.</h3>
+		<select id="addr">
+			<option value="대전">대전</option>
+			<option value="서울">서울</option>
+			<option value="부산">부산</option>
+		</select>
+		<br>
+		<span data-name="코리아1" data-address="대전" data-code="1001">코리아1</span>
+		<span data-name="코리아2" data-address="서울" data-code="1002">코리아2</span>
+		<span data-name="코리아3" data-address="부산" data-code="1003">코리아3</span>
+		<span data-name="코리아4" data-address="서울" data-code="1004">코리아4</span>
+		<span data-name="코리아5" data-address="부산" data-code="1005">코리아5</span>
+		
+		<div id="result3"></div>
+		<div id="result4"></div>
+	</div>
+</body>
+</html>

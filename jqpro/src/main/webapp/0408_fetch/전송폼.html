@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.js"></script>
+<style>
+
+</style>
+<script>
+const getData = function(url, ph, pb) {
+	fetch(url, {
+		method : 'post',
+		headers : ph,
+		body : pb
+	})
+	// resp : Response객체
+	.then (resp => {
+		//ok 값 비교
+		if(resp.ok) {
+			return resp.json();
+		}
+		else {
+			throw new Error(resp.statusText);
+		}
+	})
+	.then(data => {
+		code = `<p>아이디 : ${data.id}</p>`
+		code += `<p>이름 : ${data.name}</p>`
+		code += `<p>이메일 : ${data.email}</p>`
+
+		$('#result1').html(code);
+	})
+	.catch(err => {
+		console.log(err);
+	});
+}
+
+$(document).ready(function() {
+	$('#params').on('click', function() {
+		vid = $('#id').val();
+		vname = $('#name').val();
+		vmail = $('#mail').val();
+		
+		fheader = {
+			"Content-type" : "application/x-www-form-urlencoded"
+		}
+		fbody = "id=" + vid + "&name=" + vname + "&email=" + vmail;
+
+		// 서블릿 생략하고 함
+		getData('params.jsp', fheader, fbody);
+	});
+	
+	$('#seria').on('click', function() {
+		vid = $('#id').val();
+		vname = $('#name').val();
+		vmail = $('#mail').val();
+		
+		fheader = {
+			"Content-type" : "application/json"
+		}
+		fbody = JSON.stringify({id : vid, name : vname, email : vmail});
+		
+		// 서블릿으로 함
+		getData('/jqpro/Serial.do', fheader, fbody);
+	});
+});
+</script>
+</head>
+<body>
+	<div class="box">
+		<h3></h3>
+		<form>
+			<input type="text" placeholder="아이디" name="id" id="id"><br>	
+			<input type="text" placeholder="이름" name="name" id="name"><br>
+			<input type="text" placeholder="이메일" name="mail" id="mail"><br>
+			<br>
+			<input type="button" value="params" id="params">
+			<input type="button" value="직렬화" id="seria">
+		</form>
+		<br><br>
+		<div id="result1"></div>
+	</div>
+</body>
+</html>
