@@ -30,10 +30,11 @@ const getMember = () => {
 }
 
 $(document).ready(function() {
+	/* 동기방식 : 페이지가 바뀐다.
 	$('#sync_member').on('click', function() {
-		// 페이지가 바뀐다.
-		location.href = "http://localhost/jqpro/0404_member/memberListHref.jsp";
+	location.href = "http://localhost/jqpro/0404_member/memberListHref.jsp";
 	});
+	*/
 	
 	$('#member').on('click', () => {
 		getMember()

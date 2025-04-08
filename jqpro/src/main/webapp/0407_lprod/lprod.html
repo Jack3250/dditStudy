@@ -47,18 +47,20 @@ $(document).ready(function() {
 					  		<th>분류명</th>
 						</tr>
 					</thead>
-				`;
+					<tbody>`;
 				
 				$.each(data, function(index, lprod) {
 					code += `
-					<tr>
-						<td>${lprod.lprod_id}</td>
-						<td>${lprod.lprod_gu}</td>
-						<td>${lprod.lprod_name}</td>
-					</tr>
+						<tr>
+							<td>${lprod.lprod_id}</td>
+							<td>${lprod.lprod_gu}</td>
+							<td>${lprod.lprod_name}</td>
+						</tr>
 					`;
 				});
-				code += "</table>";
+				code += `
+					</tbody>	
+				</table>`;
 				
 				$('#result1').html(code);
 		})
