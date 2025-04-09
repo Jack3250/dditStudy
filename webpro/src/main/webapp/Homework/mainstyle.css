@@ -1,0 +1,180 @@
+body * {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: rgb(255, 255, 230);
+}
+
+html, body {
+  min-width: 1400px;
+  max-width: 1400px;
+  min-height: 800px;
+  margin: 0 auto;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background-color: aquamarine;
+  border-radius: 10px;
+  height: 100px;
+}
+header h1 a {
+  margin: 15px;
+  text-decoration-line: none;
+}
+header img {
+  width: 80px;
+  height: auto;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  height: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 0;
+  border-top: solid;
+  border-bottom: solid;
+}
+nav ul li {
+  display: flex;
+  align-items: center;
+  width: 20%;
+}
+nav ul li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: black;
+  text-decoration-line: none;
+  width: 100%;
+  height: 100%;
+}
+
+nav ul li:hover {
+  background-color: lightgray;
+}
+
+main {
+  display: flex;
+}
+
+aside {
+  flex: 20%;
+  background-color: moccasin;
+  border-radius: 30px;
+}
+section {
+  margin: 10px;
+  flex: 60%;
+}
+
+#left ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  list-style: none;
+}
+#left h3 {
+  text-align: center;
+}
+#left ul li {
+  height: 40px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background-color: cornsilk;
+  border: 1px solid tan;
+  border-radius: 10px;
+  margin: 3px;
+}
+
+#left a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-weight: bold;
+  text-decoration-line: none;
+  height: 100%;
+}
+
+#category li:hover {
+  background-color: rgb(214, 198, 148);
+}
+
+#right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 11pt;
+}
+#login {
+  width: 90%;
+  background-color: cornsilk;
+  border-radius: 30px;
+  margin: 10px;
+  padding: 15px;
+}
+#right span {
+  display: inline-block;
+  width: 70px;
+  height: 30px;
+}
+#shopcart {
+  flex-basis: 70%;
+  width: 90%;
+  background-color: cornsilk;
+  border-radius: 30px;
+  margin: 10px;
+  margin-top: 0px;
+  padding: 15px;
+}
+#right h3 {
+  margin-top: 0px;
+}
+
+#login > input {
+  border: none;
+  background-color: rgb(142, 248, 142);
+  border-radius: 7px;
+  width: 70px;
+  height: 24px;
+}
+
+#login > input:hover {
+  background-color: rgb(100, 177, 100);
+  cursor: pointer;
+}
+
+.button {
+  display: inline-block;
+  border-radius: 20px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+footer {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(41, 41, 41);
+}
+footer div {
+  padding: 10px;
+  text-align: center;
+  font-size: small;
+  color: white;
+}

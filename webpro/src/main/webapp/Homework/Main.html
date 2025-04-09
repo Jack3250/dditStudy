@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="./mainstyle.css">
+  <style>
+    #main iframe {
+      width: 100%;
+      height: 1000px;
+      border: none;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a href="main.html"><img src="../images/shopping.jpg" alt="shopping.jpg"></a>
+    <h1><a href="main.html">Web Shopping</a></h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="Main.html">Home</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">News</a></li>
+      <li><a href="#">My Account</a></li>
+      <li><a href="#">Contacts</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <aside id="left">
+      <h3>카테고리</h3>
+      <ul id="category">
+        <li><a href="computer.html" target="ifr">컴퓨터</a></li>
+        <li><a href="clothing.html" target="ifr">의류</a></li>
+        <li><a href="music.html" target="ifr">음악</a></li>
+        <li><a href="movie.html" target="ifr">영화</a></li>
+        <li><a href="sports.html" target="ifr">스포츠/레져</a></li>
+        <li><a href="furniture.html" target="ifr">가구/인테리어</a></li>
+        <li><a href="food.html" target="ifr">식품</a></li>
+      </ul>
+    </aside>
+
+    <section id="main">
+      <article>
+        <iframe name="ifr" src="../Homework/mainifr.html" title=""></iframe>
+      </article>
+    </section>
+
+    <aside id="right">
+      <div id="login">
+        <h3>로그인</h3>
+        <form action="#" method="post"></form>
+        <label><span>아이디</span><input type="text" name="id" size="10"></label>
+        <br>
+        <label><span>패스워드</span><input type="password" name="password" size="10"></label>
+        <br>
+        <input type="submit" value="로그인">
+        <input type="button" value="회원가입" onclick="location.href='Register.html'">
+      </div>
+
+      <div id="shopcart">
+        <h3>쇼핑카트</h3>
+        <div>현재 쇼핑카트에 물품이 없습니다.</div>
+        <a href="shopcart.html" class="button">장바구니</a>
+      </div>
+
+    </aside>
+  </main>
+
+  <footer>
+    <div>
+      사업자번호 : 000-00-000000 | 통신판매업신고번호 : 0000-대전중구-0000호 <br>
+      업체명 : ABC | 대표 : Hong |
+      주소 : 대전 중구 오류동 | 이메일 : aaa@naver.com<br>
+      Copyright © ABC. All right reserved
+    </div>
+  </footer>
+</body>
+
+</html>

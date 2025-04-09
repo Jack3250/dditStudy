@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+
+</style>
+<script>
+const proc1 = () => {
+// 	window.open();
+// 	window.open("../0324/객체_Random.html", "_self");
+// 	aa = window.open("../0324/객체_Random.html", "랜덤객체", "width=400 height=300 top=100 left=200");
+	
+	window.open("winSub.html");
+}
+
+const proc2 = () => {
+	setTimeout(function () {
+		res2 = document.querySelector('#result2');
+		
+		res2.style.background = "red";
+	}, 1000);
+}
+
+const proc3 = (target) => {
+	//target : 함수 호출 시 this를 파라미터로 전달 받는 용도의 변수
+	
+	// 이벤트 대상인 확인 버튼을 숨김 or 비활성화 시킴
+	// target 변수는 지역변수이므로 전역 변수로 변환
+	gtarget = target;
+	
+	target.style.display = "none";
+// 	target.setAttribute("disabled", "disabled");
+	
+// 	vid = setInterval(function () {
+// 		console.log(vid);
+// 		res3 = document.querySelector('#result3');
+		
+// 		let vr = Math.floor(Math.random() * 256); 
+// 		let vg = Math.floor(Math.random() * 256); 
+// 		let vb = Math.floor(Math.random() * 256); 
+		
+// 		rgb =;
+		
+// 		res3.style.background = `rgb(${vr}, ${vg}, ${vb})`;
+// 	}, 1000)
+
+	vid = setInterval(randomRGB, 1000);
+}
+
+const randomRGB = () => {
+	res3 = document.querySelector('#result3');
+	
+	let vr = Math.floor(Math.random() * 256); 
+	let vg = Math.floor(Math.random() * 256); 
+	let vb = Math.floor(Math.random() * 256); 
+				
+	res3.style.background = `rgb(${vr}, ${vg}, ${vb})`;
+}
+
+const stop = () => {
+	clearInterval(vid);
+	
+	// 확인 버튼을 다시 보여지게 설정
+	gtarget.style.display = "inline";
+// 	gtarget.removeAttribute("disabled");
+}
+
+const proc4 = (target) => {
+	target.style.display = "none";
+	
+	getarget = target;
+	
+	vtime = setTimeout(function timePro() {
+		let vr = Math.floor(Math.random() * 256); 
+		let vg = Math.floor(Math.random() * 256); 
+		let vb = Math.floor(Math.random() * 256);
+		
+		res4 = document.querySelector('#result4');
+// 		res4.style.background = `rgb(${vr}, ${vg}, ${vb})`;
+		
+		vr16 = vr.toString(16);
+		vg16 = vg.toString(16);
+		vb16 = vb.toString(16);
+		res4.style.background = `#${vr16}${vg16}${vb16}`;
+		
+		vtime = setTimeout(timePro, 1000)
+	}, 1000)
+}
+
+const stop4 = () => {
+	clearTimeout(vtime);
+	getarget.style.display = "inline";
+}
+
+</script>
+</head>
+<body>
+	<div class="box">
+		<h3>새 창(자식창) 열기<br>
+		자식창에서 이름을 입력하여 부모창에 출력</h3>
+		<input type="button" value="확인" onclick="proc1()"> <br> <br>
+		<div id="result1"></div>
+	</div>
+	
+	<div class="box">
+		<h3>setTimeout(fn, millisec)<br>
+		millisec 시간 이후 fn실행</h3>
+		<input type="button" value="확인" onclick="proc2()"> <br> <br>
+		<div id="result2"></div>
+	</div>
+	
+	<div class="box">
+		<h3>setInterval(fn, millisec)<br>
+		millisec 시간 마다 fn실행</h3>
+		<input type="button" value="확인" onclick="proc3(this)">
+		<input type="button" value="종료" onclick="stop()"> <br> <br>
+		<div id="result3"></div>
+	</div>
+	
+	<div class="box">
+		<h3>중첩 setTimeout(fn, millisec) <br>
+		setInterval처럼 반복적으로 수행 <br>
+		(fn종료 이후에 millisec 시간 대기) </h3>
+		<input type="button" value="확인" onclick="proc4(this)">
+		<input type="button" value="종료" onclick="stop4()"> <br> <br>
+		<div id="result4"></div>
+	</div>
+</body>
+</html>

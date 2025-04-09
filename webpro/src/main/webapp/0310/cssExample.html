@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<link rel="stylesheet" href="../css/public.css">
+
+<style>
+h3 {
+  text-align: center;
+}
+
+label {
+  display: inline-block;
+  width: 60px;
+}
+
+input[name=addr]{
+  background-color: pink;
+}
+</style>
+
+<!--
+** CSS
+우선순위 : inline > Internal > External
+inline : 태그에 직접적으로 입력하는 스타일
+Internal : html파일 내의 style 태그에 입력하는 스타일
+External : 상위 폴더의 css파일
+-->
+</head>
+<body>
+	<h3>회원가입 화면</h3>
+
+	<br>
+	<br>
+	
+	<form>
+		<label for="name">이름</label>
+		<input type="text" id="name" name="name"> <br>
+		
+	
+		<label for="addr">주소</label>
+		<input type="text" id="addr" name="addr"> <br>
+		
+		<label for="mail">이메일</label>
+		<input type="email" id="mail" name="mail" pattern=([a-zA-Z0-9]+)@([a-zA-Z]+[0-9]*)(\.[a-zA-z0-9]{1,2})> <br>
+	
+		<label>성별</label>
+		<input type="radio" id="male" name="male" value="male"> Male
+		<input type="radio" id="female" name="female" value="female"> Female <br>
+		
+		<label>내용</label>
+		<textarea name="area" id="name" rows="5" cols="23"></textarea>
+		
+		<br>
+		<br>
+		
+		<input type="submit">
+		<input type="reset">
+	</form>
+
+</body>
+</html>

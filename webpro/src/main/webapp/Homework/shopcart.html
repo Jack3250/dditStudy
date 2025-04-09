@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="./mainstyle.css">
+  <style>
+    h2 {
+      margin: 40px;
+      margin-top: 40px;
+      text-align: center;
+      font-size: 2rem;
+    }
+
+    section {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    form {
+      width: 40%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 3px double gray;
+    }
+
+    th, td {
+      border: 1px solid gray;
+      padding: 5px;
+      text-align: center;
+    }
+
+    th {
+      background-color: rgb(230, 230, 230);
+    }
+
+    .cart_price {
+      text-align: right;
+    }
+
+    #prod_name {
+      width: 30%;
+    }
+
+    #prod_price {
+      width: 25%;
+    }
+
+    #prod_qty {
+      width: 15%;
+    }
+
+    #prod_sum {
+      width: 30%;
+    }
+
+    tr {
+      height: 50px;
+    }
+
+    #cart input {
+      box-sizing: border-box;
+      line-height: 30px;
+      width: 100%;
+      text-align: right;
+      background-color: rgb(255, 255, 230);
+      border: 1px inset rgb(145, 145, 145);
+    }
+
+    #button input {
+      width: 100px;
+      margin: 0 10px;
+      
+    }
+
+    #backToHome {
+      font-size: 1.2rem;
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+    }
+
+    #backToHome > span{
+      border-radius: 5px;
+      padding: 4px 9px;
+      color: white;
+      background-color: rgb(97, 97, 88);
+    }
+
+    #sum {
+      border: none;
+    }
+
+  </style>
+  <script>
+    function calculateSum() {
+      let rows = document.querySelectorAll('#cart tr');
+      let totalSum = 0;
+
+      for (let i = 1; i < rows.length-1; i++) {
+        let qtyInput = rows[i].querySelector('.cart_qty');
+        let sumInput = rows[i].querySelector('.cart_sum');
+        let price = parseInt(rows[i].querySelector('.cart_price').textContent.replace(/,/g,''));
+        let qty = parseInt(qtyInput.value);
+        let sum = price * qty;
+        sumInput.value = sum.toLocaleString();
+        totalSum += sum;
+      }
+      document.getElementById('sum').value = totalSum.toLocaleString();
+    }
+
+  </script>
+
+</head>
+
+<body>
+  <header>
+    <a href="main.html"><img src="../images/shopping.jpg" alt="shopping.jpg"></a>
+    <h1><a href="main.html">Web Shopping</a></h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="Main.html">Home</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">News</a></li>
+      <li><a href="#">My Account</a></li>
+      <li><a href="#">Contacts</a></li>
+    </ul>
+  </nav>
+
+  <h2>장바구니</h2>
+  <section>
+    <form id="cartpage" method="post">
+      <table id="cart">
+        <tr>
+          <th id="prod_name">품목</th>
+          <th id="prod_price">가격</th>
+          <th id="prod_qty">수량</th>
+          <th id="prod_sum">합계</th>
+        </tr>
+
+        <tr>
+          <td>컴퓨터 세트</td>
+          <td class="cart_price">2,000,000</td>
+          <td><input class="cart_qty" type="number" value="0" min="0"></td>
+          <td><input class="cart_sum" type="text" value="0" readonly></td>
+        </tr>
+
+        <tr>
+          <td>티셔츠</td>
+          <td class="cart_price">50,000</td>
+          <td><input class="cart_qty" type="number" value="0" min="0"></td>
+          <td><input class="cart_sum" type="text" value="0" readonly></td>
+        </tr>
+
+        <tr>
+          <td>음악파일</td>
+          <td class="cart_price">1,000</td>
+          <td><input class="cart_qty" type="number" value="0" min="0"></td>
+          <td><input class="cart_sum" type="text" value="0" readonly></td>
+        </tr>
+
+        <tr>
+          <td>영화파일</td>
+          <td class="cart_price">5,000</td>
+          <td><input class="cart_qty" type="number" value="0" min="0"></td>
+          <td><input class="cart_sum" type="text" value="0" readonly></td>
+        </tr>
+
+        <tr>
+          <td colspan="3">합계</td>
+          <td><input id="sum" type="text" value="0" readonly></td>
+        </tr>
+      </table>
+      <div id="button">
+        <br>
+        <input type="button" value="계산" onclick="calculateSum()">
+        <input type="button" value="구매">
+        <input type="reset" value="초기화">
+      </div>
+      <br>
+      <div id="backToHome" onclick="location.href='Main.html'">
+        <span>Back to Home</span>
+      </div>
+    </form>
+  </section>
+</body>
+
+</html>

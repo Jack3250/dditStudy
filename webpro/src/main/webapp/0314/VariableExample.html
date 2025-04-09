@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	// 타입 미기재 : 전역 변수(모든 곳에서 사용 가능)
+	// let : 블록 범위 변수
+	// var : 함수 범위 변수
+	// const : 상수 선언 ex) const PI = 3.14159;
+
+	let a = 10;
+	var b = 20;
+	const c = 30;
+	
+	function a1() {
+		console.log(a);
+		a = a+10;
+		console.log("a1=", a);
+		
+		x = 30;
+		var y = 50;
+		for(var i=0; i<3; i++) {
+			console.log("for=", i);
+		}
+		
+		console.log("다시 i", i)
+	}
+	
+	function b1() {
+		console.log("b1=", a)
+		console.log("x=", x)
+		
+		console.log("c=", c)
+		
+		c=50;
+	}
+	
+	function c1() {
+		console.log("c1=", a);
+		console.log("y=", y)
+	}
+
+</script>
+
+</head>
+<body>
+	<input type="button" value="a1" onclick="a1()">
+	<input type="button" value="b1" onclick="b1()">
+	<input type="button" value="c1" onclick="c1()">
+
+</body>
+</html>

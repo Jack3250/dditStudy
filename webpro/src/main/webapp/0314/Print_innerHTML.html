@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div {
+	border: 2px dotted gold;
+	width: 200px;
+	height: 100px;
+}
+</style>
+
+<script>
+	console.log('hello');
+	let a = 10;
+	console.log("a==", a);
+	
+	a = 20;
+	console.log("a==", a);
+	
+	var b = 20;
+	console.log("b==", b);
+	
+	var b = 30;
+	console.log("b==", b);
+	
+	//id가 result인 요소를 검색한다.
+	window.onload = function() {
+		let res = document.getElementById('result');
+		
+		res.innerHTML = "hello!";
+		
+		res.innerText = "안녕하세요";
+  
+		res.innerHTML = "<h1>hello!</h1>";
+		
+		res.innerText = "<h1>hello!</h1>";
+		// Text : 태그 적용 불가
+		// HTML : 태그 적용 가능
+// 		document.write("hello!");
+		// window.onload 함수에 포함되어 있기 때문에 body태그의 문서를 덮어쓰게됨
+		// 잘 사용하지 않음
+// 		window.alert("안녕하세요");
+		// 팝업창의 우선순위가 상위
+	}
+	
+	function calc(){
+		let a = 134;
+		let b = 257;
+		
+		let c = a * b;
+		
+		console.log("a * b=", c);
+		
+		let res = document.getElementById('result');
+// 		res.innerHTML = "a * b = "+ c;
+// 		res.innerHTML = a+"*"+b+"="+c;
+		
+		res.innerHTML = `${a}*${b}=${c}`;
+	}
+	
+</script>
+
+</head>
+<body>
+	<div id="result"></div>
+	<br>
+	<input type="button" value="확인" onclick="alert('hello')">
+	<br>
+	<input type="button" value="확인" onclick="calc()">
+
+</body>
+</html>

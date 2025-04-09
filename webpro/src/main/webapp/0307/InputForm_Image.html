@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<style>
+#info {
+	vertical-align: top;
+}
+
+</style>
+
+<body>
+
+	<form action= "test4.jsp" method="post">
+
+		<span>이름</span>
+		<input type="text" name="name" value="이름을 입력하세요">
+		
+		<br>
+		
+		<span>비밀번호</span>
+		<input type="password" name="pass">
+		
+		<br>
+		
+		<span id="info">자기소개</span>
+		<textarea rows="5" cols="30" name="area"></textarea>
+		
+		<!-- rows = 줄 / cols = 글자  -->
+		
+		
+		<br>
+		
+		<input type="image" src="../images/check.png" alt="check.png">
+		
+		<br>
+		
+		<button>전송</button>
+		<button type="submit">보내기</button>
+		<button type="reset">지우기</button>
+		<button type="button" onclick="alert('hello world')">확인</button>
+		
+	</form>
+
+</body>
+</html>

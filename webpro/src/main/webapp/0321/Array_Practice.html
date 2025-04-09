@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+
+</style>
+<script>
+const proc1 = () => {
+	let arr = [];
+	while(true) {
+		let name = prompt("이름 입력");
+		if(name == null || name == " ") break;
+		
+		arr.push(name);
+	}
+	document.getElementById('result1').innerHTML = arr;
+}
+
+const proc2 = () => {
+	let arr = [];
+	while(true) {
+		let num = prompt("숫자 입력");
+		if(num == null) break;
+		if(isNaN(num) || num=="") {
+			alert("숫자를 입력하세요.");
+			continue;
+		}
+		else if(arr.indexOf(num) != -1) {
+			alert("중복된 숫자입니다.");
+			continue;
+		}
+		if(arr.indexOf(num) == -1) arr.push(num);
+		if(arr.length>=5) break;
+	}
+	document.getElementById('result2').innerHTML = arr;	
+}
+</script>
+</head>
+<body>
+	<div class="box">
+		<h3>1. prompt()를 이용하여 이름을 계속 입력 받아 배열에 저장하고 출력하는 프로그램을 작성하시오.<br>
+			- 입력의 마지막은 공백 문자를 입력하거나 “취소” 버튼을 눌렀을 때(null)로 한다.
+		</h3>
+		<input type="button" value="확인" onclick="proc1()"> <br> <br>
+		<div id="result1"></div>
+	</div>
+	
+	<div class="box">
+		<h3>2. 서로 중복되지 않은 정수 5개를 입력 받아 출력하는 프로그램을 작성하시오.</h3>
+		<input type="button" value="확인" onclick="proc2()"> <br> <br>
+		<div id="result2"></div>
+	</div>
+</body>
+</html>

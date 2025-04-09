@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+.delButton {
+	float: right;
+}
+</style>
+<script>
+arr = ["가나다", "나다라", "다라마", "라마바", "마바사", "바사아",
+	"사아자", "아자차", "자차카", "차카타", "카타파", "타파하"];
+	
+const addProc1 = () => {
+	let ran = Math.floor(Math.random() * arr.length);
+	let vtxt = document.createTextNode(arr[ran]);
+	
+	let vptag = document.createElement('p');
+	
+	vptag.onclick = function() {
+		this.style.color = "red";
+	}
+	
+	vptag.appendChild(vtxt);
+	
+	document.querySelector('#result1').appendChild(vptag);
+}
+
+const delProc1 = () => {
+	let vres1 = document.querySelector('#result1');
+	let vchild = vres1.firstChild;
+// 	let vchild = vres1.lastChild;
+	
+	vres1.removeChild(vchild);
+}
+
+// addProc1이 시행되기 전에 미리 수행되는 함수
+// #result1의 p태그를 검색하면 length = 0
+
+window.onload = function() {
+	ptag = document.querySelectorAll('#result1 p');
+	console.log(ptag);
+}
+
+const addProc2 = () => {
+	let ran = Math.floor(Math.random() * arr.length);
+	let vtxt = document.createTextNode(arr[ran]);
+	let vdel = document.createElement('input');
+	
+	vdel.type = "button";
+	vdel.value = "삭제";
+	vdel.setAttribute('class', 'delButton');
+	vdel.onclick = function() {
+		this.parentNode.remove();
+	}
+	
+	let vptag = document.createElement('p');
+	
+	vptag.appendChild(vtxt);
+	vptag.appendChild(vdel);
+	document.querySelector('#result2').appendChild(vptag);
+}
+
+const delProc2 = () => {
+	document.querySelector('#result2').innerHTML = "";
+}
+
+</script>
+</head>
+<body>
+	<div class="box">
+		<h3>랜덤으로 발생되는 문자열로 textNode를 생성하여<br>
+		p태그 생성 -> textnode 추가 -> #result1에 출력</h3>
+		<input type="button" value="추가" onclick="addProc1()"> 글자 생성 <br> <br>
+		<input type="button" value="삭제" onclick="delProc1()"> 노드 삭제<br> <br>
+		<div id="result1"></div>
+	</div>
+	
+	<div class="box">
+		<h3>랜덤으로 발생되는 문자열로 textNode를 생성하여<br>
+		p태그 생성 -> textnode 추가 -> 삭제버튼 추가 -> #result1에 출력<br>
+		삭제버튼 클릭시 노드 삭제</h3>
+		<input type="button" value="추가" onclick="addProc2()"> 글자 생성 <br> <br>
+		<input type="button" value="전체 삭제" onclick="delProc2()"> 전체 삭제 <br> <br>
+		<div id="result2"></div>
+	</div>
+</body>
+</html>

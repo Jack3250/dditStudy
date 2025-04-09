@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    h2 {
+      text-align: center;
+    }
+
+    section ul {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      list-style: none;
+      padding: 0;
+    }
+
+    section li {
+      border: 1px solid gray;
+      padding: 10px;
+      margin: 10px;
+    }
+
+    section li a {
+      text-decoration-line: none;
+      color: black;
+    }
+
+    section img {
+      width: 100%;
+    }
+
+    .prod_name {
+      font-weight: bold;
+      font-size: 1rem;
+      height: 70px;
+      overflow: auto;
+    }
+
+    .prod_price {
+      font-size: 1.1rem;
+    }
+  </style>
+
+</head>
+
+<body>
+  <h2>식품</h2>
+  <section>
+    <ul>
+      <li>
+      	<div class="product">
+	        <a href="#">
+	          <img src="../images/식품1.jpg" alt="식품1.jpg">
+	        </a>
+	        <p class="prod_name">모듬죽 5종 300g 2팩</p>
+	        <p class="prod_price">15,000원</p>
+      	</div>
+      </li>
+      <li>
+      	<div class="product">
+	        <a href="#">
+	          <img src="../images/식품2.jpg" alt="식품2.jpg">
+	        </a>
+	        <p class="prod_name">가정용 세척사과 꼬마소과 5kg </p>
+	        <p class="prod_price">25,000원</p>
+      	</div>
+      </li>
+    </ul>
+  </section>
+</body>
+
+</html>

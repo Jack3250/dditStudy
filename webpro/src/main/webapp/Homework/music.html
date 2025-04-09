@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="./mainstyle.css">
+  <style>
+    body, html {
+      min-width: 0px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    section ul {
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      padding: 0;
+    }
+
+    section li {
+      border: 1px solid gray;
+      padding: 10px;
+      margin: 10px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    section li a {
+      text-decoration-line: none;
+      color: black;
+    }
+
+    .prod_info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px;
+      border: 1px solid brown;
+    }
+
+    section img {
+      width: 130px;
+      height: 130px;
+    }
+
+    .music_name {
+      width: 130px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin: 5px;
+      text-align: center;
+    }
+
+    .music_artist {
+      width: 130px;
+      color: rgb(58, 58, 58);
+      font-size: 0.8rem;
+      margin: 2px;
+      padding-bottom: 5px;
+      text-align: center;
+    }
+
+    .prod_price {
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    audio {
+      width: 80%;
+    }
+
+    .prod_sound {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+  </style>
+
+</head>
+
+<body>
+  <h2>영화</h2>
+  <section>
+    <ul>
+      <li>
+      	<div class="prod_info">
+        	<a href="#">
+            	<img src="media/tuki.jpg" alt="tuki.jpg">
+        	</a>
+            <p class="music_name">『만찬가』</p>
+            <p class="music_artist">tuki.</p>
+            <input type="button" value="담기">
+          </div>
+        <div class="prod_sound">
+          <audio src="media/tuki.mp3" controls></audio>
+        </div>
+      </li>
+      <li>
+          <div class="prod_info">
+	        <a href="#">
+	            <img src="media/lady.jpg" alt="lady.jpg">
+	        </a>
+            <p class="music_name">LADY</p>
+            <p class="music_artist">Yonezu Kenshi</p>
+            <input type="button" value="담기">
+          </div>
+        <div class="prod_sound">
+          <audio src="media/lady.mp3" controls></audio>
+        </div>
+      </li>
+      <li>
+          <div class="prod_info">
+	        <a href="#">
+            	<img src="media/apt.jpg" alt="apt.jpg">
+	        </a>
+            <p class="music_name">APT.</p>
+            <p class="music_artist">ROSÉ &amp; Bruno Mars</p>
+            <input type="button" value="담기">
+          </div>
+        <div class="prod_sound">
+          <audio src="media/apt.mp3" controls></audio>
+        </div>
+      </li>
+    </ul>
+  </section>
+</body>
+</html>

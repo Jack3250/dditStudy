@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function calc() {
+		fValue = document.getElementById('firstVal').value;
+		sValue = document.getElementById('secondVal').value;
+
+		sum = parseInt(fValue) + parseInt(sValue);
+
+		document.querySelector('#sum').value = sum;
+	}
+</script>
+
+</head>
+<body>
+	수1 :
+	<input id="firstVal">
+	<br> 수2 :
+	<input id="secondVal">
+	<br> 합계 :
+	<input id="sum">
+	<input type="button" value="계산" onclick="calc()">
+</body>
+</html>

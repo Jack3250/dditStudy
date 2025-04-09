@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+span{
+  font-size : 1.5rem;
+  font-weight : bold;
+  color : orange;
+}
+</style>
+<script>
+const proc1 = () => {
+	str = `hostname : ${location.hostname}<br>
+		   port : ${location.port}<br>
+		   host : ${location.host}<br>
+		   protocol : ${location.protocol}<br>
+		   pathname : ${location.pathname}<br>
+		   href : ${decodeURI(location.href)}<br>`
+		   
+	document.querySelector('#result1').innerHTML = str;
+}
+
+const proc2 = () => {
+	location.href="Window_객체.html";
+}
+
+const fnAssign = () => {
+	location.assign("Window_객체.html");
+}
+
+const fnReplace= () => {
+	location.replace("Window_객체.html");
+}
+
+const fnReload= () => {
+	// 랜덤으로 발생되는 문자열을 result2에 출력	
+	arr = ["가나다", "나다라", "다라마", "라마바", "마바사", "바사아",
+		"사아자", "아자차", "자차카", "차카타", "카타파", "타파하"];
+	
+	let rnd = Math.floor(Math.random() * arr.length);
+	
+	document.querySelector('#result2').innerHTML = "<h1>" + arr[rnd] + "</h1>";
+	document.querySelector('#result2').style.color = "red";
+	
+	//1초 후에 원래 문서로 돌아오기
+	setTimeout(function() {
+		location.reload();
+	}, 3000)
+}
+
+</script>
+</head>
+<body>
+	<div class="box">
+		<h3></h3>
+		<input type="button" value="확인" onclick="proc1()"> <br> <br>
+		<div id="result1"></div>
+	</div>
+	
+	<div class="box">
+		<h2>문서이동하기</h2>
+		
+		<h3>1. button 함수호출 -<span>onclick="proc2()"</span></h3>
+		<input type="button" value="1.이동" onclick="proc2()">
+
+		<h3>2. button 서버로전송 -<span>onclick="location.href='href.jsp?id=a001'"</span></h3>
+		<input type="button" value="1.이동" onclick="location.href='hrefsend.jsp?id=a001'"> <br>
+		
+		<h3>3. href에서 다른 파일지정 <span>href="../0324/객체_Date.html"</span></h3>
+		<a href="../0324/객체_Date.html">이동</a>
+		
+		<h3>4. href 에서 script의 함수호출 <span>href="javascript:proc2()"</span></h3>
+		<a href="javascript:proc2()">이동</a>
+		
+		<h3>5. a태그 onclick=script함수호출 <span>onclick="proc2()"</span></h3>
+		<a href="#" onclick="proc2()">이동</a>
+
+		<h3>6. a태그 onclick=서버로 보내기<span>onclick="location.href='href.jsp?id=a001'"</span></h3>
+		<a href="#" onclick="location.href='hrefsend.jsp?id=a001'">서버로get</a>
+	</div>
+
+	<div class="box">
+		<h3>location객체 <br>
+		assign()  : 새로운 문서로드 , 히스토리 남김, 뒤로가기 가능 <br>
+		replace() : 새로운 문서 대체 히스토리 남기지 않음 , 뒤로가기 불가능 <br> 
+		reload()  : 현재 문서를 다시 로드-</h3>
+		
+		<input type="button" value="assign" onclick="fnAssign()">
+		<input type="button" value="replace" onclick="fnReplace()">
+		<input type="button" value="reload" onclick="fnReload()"><br><br>
+		
+		<div id="result2" ></div>
+	</div>
+</body>
+</html>
