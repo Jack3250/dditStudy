@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.js"></script>
+<style>
+
+</style>
+<script>
+	$(function() {
+		//async/await 방식=====================================
+		/*
+		async/await 과 fetch와 같은 비동기와의 차이점은, fetch나 promise는 .then 이나 .catch를 통해서
+		연결되어 후속기능을 수행하게 됨.
+		
+		그러나 async/await은 .then이나 .catch를 통해 후속기능을 수행하는 것이 아니라,
+		await 이후의 기능을 수행하고나서, await 앞의 변수에 값을 대입하는 방식임.
+
+		따라서 반환되어 대입된 변수를 이용하여 후속 기능을 수행시킴
+
+		결론적으로 .then이나 .catch를 통해 코드가 길어지는 점을 방지 할 수 있음.
+		*/
+		const async_login = async (url, head, data) => {
+			try {
+				/*
+				await : fetch문이 끝나기전까지 기다렸다가, 끝나고 나면, 앞에 변수에 '값'을 대입함.
+				*/ 
+				const resp = await fetch(url, {
+					method : 'post',
+					headers : head,
+					body : data
+				})
+				
+				// 위와 동일하게 resp를 역직렬화하여 result에 대입함
+				result = await resp.json();
+
+				console.log(result);
+			} catch(err) {
+				console.log(err);
+			}
+		}
+		
+		$('#asend').on('click', function() {
+			let vid = $('#id').val().trim();
+			let vpass = $('#pass').val().trim();
+
+			fheader = {
+				"Content-type" : "application/json;charset=utf-8"
+			}
+			fbody = JSON.stringify({
+				mem_id : vid,
+				mem_pass : vpass
+			});
+
+			async_login('/jqpro/LoginController.do', fheader, fbody)
+		});
+		//async/await 방식=====================================
+		
+		//fetch 방식===========================================
+		const fetch_login = (url, head, data) => {
+			fetch(url, {
+				method : 'post',
+				headers : head,
+				body : data
+			})
+			.then(resp => {
+				if(resp.ok) {
+					return resp.json();
+				}
+				else {
+					throw new Error(resp.statusText);
+				}
+			})
+			.then(data => {
+				console.log(data);
+			})
+			.catch(err => {
+				console.log(err);
+			})
+		}
+		
+		$('#fsend').on('click', function() {
+			let vid = $('#id').val().trim();
+			let vpass = $('#pass').val().trim();
+			
+			fheader = {
+				"Content-type" : "application/json;charset=utf-8"
+			}
+			fbody = JSON.stringify({
+				mem_id : vid,
+				mem_pass : vpass
+			});
+			
+			fetch_login('/jqpro/LoginController.do', fheader, fbody);
+		});
+		//fetch 방식===========================================
+		
+		//promise 방식=========================================
+		const promi_login = (url, data) => {
+			return new Promise((resolve, reject) => {
+				xhr = new XMLHttpRequest();
+
+				xhr.open('post', url, true);
+				xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				xhr.send(data);
+
+				xhr.onload = res => {
+					resolve(xhr.responseText);
+				}
+
+				xhr.onerror = err => {
+					reject(new Error(xhr.statusText))
+				}
+			});
+		}
+		
+		$('#psend').on('click', function() {
+			// 입력한 아이디와 비밀번호를 data에 넣어주기
+
+			let vid = $('#id').val().trim();
+			let vpass = $('#pass').val().trim();
+			
+			// data => 쿼리 스트링의 파라미터
+			let vdata = "mem_id="+vid+"&mem_pass="+vpass;
+			
+			promi_login('/jqpro/LoginController.do', vdata)
+			.then(res => {
+				// res : json형식의 문자열 데이터
+				// res데이터를 역직렬화
+				return JSON.parse(res);
+			})
+			.then(data => {
+				console.log(data);
+				
+				// 출력
+			})
+			.catch(err => {
+				console.log(err);
+			});
+		});
+	//promise 방식=========================================
+	});
+</script>
+</head>
+<body>
+	<div class="box">
+		<form>
+			아 이 디 <input name="id" id="id"> <br>
+			비밀번호 <input name="pass" id="pass"> <br>
+			<br>
+			<input type="button" value="async전송" id="asend">
+			<input type="button" value="fetch전송" id="fsend">
+			<input type="button" value="promise전송" id="psend">
+		</form>
+		<br> <br>
+		<div id="result1"></div>
+		<div id="result2"></div>
+		<div id="result3"></div>
+	</div>
+</body>
+</html>

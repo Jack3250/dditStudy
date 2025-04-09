@@ -12,16 +12,10 @@ import kr.or.ddit.member.vo.MemberVo;
 import java.io.IOException;
 import java.util.List;
 
-/**
- * Servlet implementation class MemberList
- */
 @WebServlet("/MemberList.do")
 public class MemberList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 클라이언트 전송 데이터 받기
 		

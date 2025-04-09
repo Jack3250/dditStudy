@@ -28,4 +28,9 @@ public class MemberServiceImpl implements IMemberService {
 	public List<MemberVo> memberList() {
 		return iMemberDao.memberList();
 	}
+	
+	@Override
+	public MemberVo memberLogin(MemberVo login) {
+		return iMemberDao.memberLogin(login);
+	}
 }
