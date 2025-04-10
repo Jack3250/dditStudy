@@ -53,45 +53,44 @@
 							<h6>게시판 리스트</h6>
 						</div>
 						<div class="card-body">
-							<table class="table table-bordered table-hover table-sm">
-								<thead class="thead-dark">
-									<tr>
-										<th>제목</th>
-										<th>내용</th>
-										<th>작성자</th>
-										<th>작성일</th>
-										<th>조회수</th>
-									</tr>
-								</thead>
-								<tbody>
-									<c:choose>
-										<c:when test="${empty boardList}">
-											<tr>
-												<td colspan="4">게시글이 없습니다. </td>
-											</tr>
-										</c:when>
-										<c:otherwise>
-											<c:forEach var="board" items="${boardList}">
-												<tr>
-													<td><a href="${pageContext.request.contextPath}/board/boardView.do?boardNo=${board.boardNo}">${board.title}</a></td>
-													<td>${board.content}</td>
-													<td>${board.member.name}</td>
-													<td>${board.regDate}</td>
-													<td>${board.cnt}</td>
-												</tr>
-											</c:forEach>
-										</c:otherwise>
-									</c:choose>
-								</tbody>
-							</table>
+							<form action="/0408_Board/board/boardInsert.do" method="post">
+								<c:if test="${not empty board.boardNo }">
+									<input type="hidden" name="boardNo" value="${board.boardNo }">
+								</c:if>
+								<input type="hidden" name="codeNo" value="${codeNo}">
+								<input type="hidden" name="memNo" value="${sessionScope.member.memNo}">
+								<table class="table table-bordered table-sm">
+	                                <thead>
+	                                    <tr>
+	                                    	<th>제목</th>
+	                                        <th colspan="3"><input type="text" name="title" value="${board.title}"></th>
+	                                    </tr>
+	                                </thead>
+	                                <tbody>
+	                                    <tr>
+	                                        <td>작성자</td>
+	                                        <td>${sessionScope.member.name}</td>
+	                                        <td>작성일</td>
+	                                        <td>${board.regDate}</td>
+	                                        <td>조회수</td>
+	                                        <td>${board.cnt}</td>
+	                                    </tr>
+	                                    <tr>
+	                                        <td colspan="6">
+	                                        	<input type="text" name="content" value="${board.content}">
+	                                        </td>
+	                                    </tr>
+	                                </tbody>
+								</table>
+								<button class="btn btn-primary">전송</button>
+							</form>
+								<a href="/0408_Board/board/boardList.do?codeNo=${codeNo}" class="btn btn-warning">목록</a>
 						</div>
 					</div>				
 				</div>
 			</div>
             </div>
             <!-- End of Main Content -->
-
-			
 
             <!-- Footer -->
             <jsp:include page="/WEB-INF/view/temp/main/footer.jsp"></jsp:include>

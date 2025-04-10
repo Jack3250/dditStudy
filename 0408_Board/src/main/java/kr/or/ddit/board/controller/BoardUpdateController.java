@@ -9,15 +9,29 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import kr.or.ddit.board.service.BoardService;
+import kr.or.ddit.vo.BoardVo;
 
-@WebServlet("/board/main.do")
-public class BoardMainController extends HttpServlet{
+@WebServlet("/board/boardUpdate.do")
+public class BoardUpdateController extends HttpServlet {
 	
 	BoardService boardService = BoardService.getInstance();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		int boardNo = Integer.parseInt(req.getParameter("boardNo"));
+		
+		BoardVo board = new BoardVo();
+		board.setBoardNo(boardNo);
+		
+		board = boardService.boardView(board);
+		
+		String codeNoStr = req.getParameter("codeNo");
+		int codeNo = Integer.parseInt(codeNoStr);
+		
+		req.setAttribute("board", board);
+		req.setAttribute("codeNo", codeNo);
+		
 		ServletContext ctx = req.getServletContext();
-		ctx.getRequestDispatcher("/WEB-INF/view/board/main.jsp").forward(req, resp);
+		ctx.getRequestDispatcher("/WEB-INF/view/board/boardInsertForm.jsp").forward(req, resp);
 	}
 }

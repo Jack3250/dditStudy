@@ -26,8 +26,41 @@
 		SELECT BOARD_NO, TITLE, CONTENT, B.REG_DATE, B.MEM_NO, CNT, CODE_NO, B.DELYN, NAME
 		FROM BOARD B, MEMBER M
 		WHERE B.MEM_NO = M.MEM_NO
-		AND B.CODE_NO = ${codeNo}
+		AND B.CODE_NO = #{codeNo}
+		AND B.DELYN = 'N'
+		ORDER BY BOARD_NO DESC
+	</select>
+	
+	<select id="boardView" resultMap="boardMap" parameterType="BoardVo">
+		SELECT BOARD_NO, TITLE, CONTENT, B.REG_DATE, B.MEM_NO, CNT, CODE_NO, B.DELYN, NAME
+		FROM BOARD B, MEMBER M
+		WHERE B.MEM_NO = M.MEM_NO
+		AND B.BOARD_NO = #{boardNo}
 		AND B.DELYN = 'N'
 	</select>
-
+	
+	<update id="boardDelete" parameterType="BoardVo">
+		UPDATE BOARD
+		SET DELYN = 'Y'
+		WHERE BOARD_NO = #{boardNo}
+	</update>
+	
+	<select id="getBoardNo" resultType="int">
+		SELECT NVL(MAX(BOARD_NO), 0)+1 
+		FROM BOARD
+	</select>
+	
+	<update id="boardInsert" parameterType="BoardVo">
+		MERGE
+		 INTO BOARD
+		 USING DUAL
+		    ON (BOARD_NO = #{boardNo})
+		 WHEN MATCHED THEN
+		    UPDATE
+		    SET TITLE = #{title},
+		        CONTENT = #{content}
+		 WHEN NOT MATCHED THEN
+			INSERT
+			VALUES(#{boardNo}, #{title}, #{content}, SYSDATE, #{member.memNo}, 0, #{codeNo}, 'N')
+	</update>
 </mapper>

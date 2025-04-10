@@ -28,5 +28,20 @@ public class BoardDao extends MybatisDao{
 	public List<BoardVo> boardList(BoardVo board) {
 		return selectList("board.boardList", board);
 	}
+
+	public BoardVo boardView(BoardVo board) {
+		return selectOne("board.boardView", board);
+	}
+
+	public BoardVo boardDelete(BoardVo board) {
+		return selectOne("board.boardDelete", board);
+	}
 	
+	public int getBoardNo() {
+		return selectOne("board.getBoardNo");
+	}
+	
+	public void boardInsert(BoardVo board) {
+		selectOne("board.boardInsert", board);
+	}
 }

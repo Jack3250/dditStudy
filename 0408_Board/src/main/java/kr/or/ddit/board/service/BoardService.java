@@ -30,4 +30,20 @@ public class BoardService {
 	public List<BoardVo> boardList(BoardVo board) {
 		return boardDao.boardList(board);
 	}
+
+	public BoardVo boardView(BoardVo board) {
+		return boardDao.boardView(board);
+	}
+
+	public BoardVo boardDelete(BoardVo board) {
+		return boardDao.boardDelete(board);
+	}
+	
+	public int getBoardNo() {
+		return boardDao.getBoardNo();
+	}
+	
+	public void boardInsert(BoardVo board) {
+		boardDao.boardInsert(board);
+	}
 }

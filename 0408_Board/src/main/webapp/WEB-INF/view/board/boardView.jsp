@@ -53,37 +53,36 @@
 							<h6>게시판 리스트</h6>
 						</div>
 						<div class="card-body">
-							<table class="table table-bordered table-hover table-sm">
-								<thead class="thead-dark">
-									<tr>
-										<th>제목</th>
-										<th>내용</th>
-										<th>작성자</th>
-										<th>작성일</th>
-										<th>조회수</th>
-									</tr>
-								</thead>
-								<tbody>
-									<c:choose>
-										<c:when test="${empty boardList}">
-											<tr>
-												<td colspan="4">게시글이 없습니다. </td>
-											</tr>
-										</c:when>
-										<c:otherwise>
-											<c:forEach var="board" items="${boardList}">
-												<tr>
-													<td><a href="${pageContext.request.contextPath}/board/boardView.do?boardNo=${board.boardNo}">${board.title}</a></td>
-													<td>${board.content}</td>
-													<td>${board.member.name}</td>
-													<td>${board.regDate}</td>
-													<td>${board.cnt}</td>
-												</tr>
-											</c:forEach>
-										</c:otherwise>
-									</c:choose>
-								</tbody>
+							<table class="table table-bordered table-sm">
+                                <thead>
+                                    <tr>
+                                    	<th>제목</th>
+                                        <td colspan="3">${board.title}</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                    	<th>글쓴이</th>
+                                        <td>${board.member.name}</td>
+                                        <th>작성일</th>
+                                        <td>${board.regDate}</td>
+                                        <th>조회</th>
+                                        <td>${board.cnt}</td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="6">내용</th>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6">${board.content}</td>
+                                    </tr>
+                                </tbody>
 							</table>
+							
+							<c:if test="${sessionScope.member.memNo eq board.member.memNo}">
+								<a href="/0408_Board/board/boardUpdate.do?boardNo=${board.boardNo}&codeNo=${board.codeNo}" class="btn btn-primary">수정</a>
+								<a href="/0408_Board/board/boardDelete.do?boardNo=${board.boardNo}&codeNo=${board.codeNo}" class="btn btn-danger">삭제</a>
+							</c:if>
+							<a href="/0408_Board/board/boardList.do?codeNo=${board.codeNo}" class="btn btn-warning">목록</a>
 						</div>
 					</div>				
 				</div>

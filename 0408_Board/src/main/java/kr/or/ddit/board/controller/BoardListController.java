@@ -10,7 +10,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import kr.or.ddit.board.service.BoardService;
-import kr.or.ddit.vo.BoardCodeVo;
 import kr.or.ddit.vo.BoardVo;
 
 @WebServlet("/board/boardList.do")
@@ -29,9 +28,6 @@ public class BoardListController extends HttpServlet{
 		board.setCodeNo(codeNo);
 		
 		List<BoardVo> boardList =  boardService.boardList(board);
-		List<BoardCodeVo> codeList = boardService.codeList();
-		
-		req.setAttribute("codeList", codeList);
 		req.setAttribute("boardList", boardList);
 		
 		System.out.println(boardList);
