@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="./mainstyle.css">
+  <style>
+    h2 {
+      margin: 40px;
+      margin-top: 40px;
+      text-align: center;
+      font-size: 2rem;
+    }
+
+    legend {
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+
+    form {
+      width: 40%;
+      margin: 0 auto;
+    }
+
+    fieldset {
+      padding: 50px;
+      border: solid 2px;
+      border-radius: 30px;
+    }
+
+    .list {
+      display: inline-block;
+      width: 150px;
+      height: 35px;
+      font-weight: 500;
+    }
+
+    .inputform {
+      width: 200px;
+      box-sizing: border-box;
+    }
+
+    #gen_male {
+      margin-left: 0;
+    }
+
+    #gen_female {
+      margin-left: 30px;
+    }
+
+    .buttons {
+      margin-top: 10px;
+      width: 150px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <header>
+    <a href="main.html"><img src="../images/shopping.jpg" alt="shopping.jpg"></a>
+    <h1><a href="main.html">Web Shopping</a></h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="Main.html">Home</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">News</a></li>
+      <li><a href="#">My Account</a></li>
+      <li><a href="#">Contacts</a></li>
+    </ul>
+  </nav>
+
+  <h2>회원가입</h2>
+  <section>
+    <form id="register" method="post">
+      <fieldset>
+        <legend>회원정보입력</legend>
+        <label for="id" class="list">아이디</label>
+        <input class="inputform" id="id" type="text" name="id">
+        <button>중복검사</button>
+        <br>
+        <label for="pass" class="list">패스워드</label>
+        <input class="inputform" id="pass" type="password" name="password">
+        <br>
+        <label for="chkpass" class="list">패스워드 확인</label>
+        <input class="inputform" id="chkpass" type="password" name="passwordChk">
+        <br>
+        <label for="name" class="list">이름</label>
+        <input class="inputform" id="name" type="text" name="name" placeholder="홍길동">
+        <br>
+        <label for="tel" class="list">휴대폰번호</label>
+        <input class="inputform" id="tel" type="tel" name="tel" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
+          placeholder="010-0000-0000">
+        <br>
+        <label for="email" class="list">이메일</label>
+        <input class="inputform" id="email" type="email" name="email"
+          pattern="([a-zA-Z0-9]+)@([a-zA-Z]+[0-9]*)(\.[a-zA-Z0-9]+){1,2}" placeholder="abc123@google.co.kr">
+        <br>
+        <label for="birday" class="list">생일</label>
+        <input class="inputform" id="birday" type="date" name="birthday">
+        <br>
+        <label for="homepage" class="list">홈페이지</label>
+        <input class="inputform" id="homepage" type="text" name="homepage"
+          pattern="www.([a-zA-Z0-9]+).([a-zA-Z]+[0-9]*)(\.[a-zA-Z0-9]+){1}">
+        <br>
+        <label class="list">성별</label>
+        <input id="gen_male" type="radio" name="gender" value="male"><label for="gen_male">남자</label>
+        <input id="gen_female" type="radio" name="gender" value="female"><label for="gen_female">여자</label>
+        <br>
+        <input class="buttons" type="submit" value="제출">
+        <input class="buttons" type="reset" value="초기화">
+      </fieldset>
+    </form>
+  </section>
+</body>
+
+</html>

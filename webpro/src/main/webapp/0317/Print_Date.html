@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	let day = new Date();
+	
+	window.onload = function() {
+	res = document.getElementById('result')
+	
+	str = "오늘은 "+day+"입니다.";
+	str += day.toLocaleString();
+	
+	res.innerText=str;
+		
+		
+	}
+	
+	
+	
+</script>
+
+<style>
+div {
+	border: 2px dotted gold;
+	height: 100px;
+}
+</style>
+
+</head>
+<body>
+	<div id="result"></div>
+</body>
+</html>

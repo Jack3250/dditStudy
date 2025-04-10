@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+
+</style>
+<script>
+	today1 = new Date();
+	const proc1 = () => {
+		today2 = new Date(1000);
+		today3 = new Date("2025. 03. 24.");
+		today4 = new Date(2025, 3, 24);
+		
+		str = `${today1} <br>
+			   ${today2} <br>
+			   ${today3} <br>
+			   ${today4} <br><br>`;
+			   
+		str += `${today1.toLocaleString()} <br>
+				${today2.toLocaleDateString()} <br>
+				${today3.toLocaleTimeString()} <br>
+				${today1.toISOString()} <br>`;
+		
+		document.querySelector('#result1').innerHTML = str;
+	}
+	
+	const proc2 = () => {
+		day = today1.getDay();
+		switch(day) {
+		case 0:
+			res = "일요일";
+			break;
+		case 1:
+			res = "월요일";
+			break;
+		case 2:
+			res = "화요일";
+			break;
+		case 3:
+			res = "수요일";
+			break;
+		case 4:
+			res = "목요일";
+			break;
+		case 5:
+			res = "금요일";
+			break;
+		case 6:
+			res = "토요일";
+			break;
+		}
+		
+		str = `오늘은 ${today1.toLocaleString()} ${res} 입니다.`
+		
+		document.querySelector('#result2').innerHTML = str;
+	}
+	
+	const proc3 = () => {
+		arr = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+		
+		str = `오늘은 ${today1.toLocaleString()} ${arr[today1.getDay()]}입니다.`
+		
+		document.querySelector('#result3').innerHTML = str;
+	}
+	
+	const proc4 = () => {
+		myDay = new Date("2010.03.05.");
+		
+		toTime = today1.getTime();
+		myTime = myDay.getTime();
+		
+		myDays = toTime - myTime;
+		
+		myValue = myDays/1000/60/60/24/365;
+		
+		str = `오늘 : ${today1.toLocaleDateString()} <br>
+			   생일 : ${myDay.toLocaleDateString()} <br>
+			   결과 : ${myValue.toFixed(0)}년 지났습니다.`
+		
+		document.querySelector('#result4').innerHTML = str;
+	}
+	
+	const proc5 = () => {
+		totime = today1.getTime();
+		totime += 1000*60*60*24*500;
+		
+		today = new Date(totime);
+		str = `오늘은 ${today1.toLocaleDateString()}이고, <br>
+			   500일 이후는 ${today.toLocaleDateString()}입니다.`
+		
+		document.querySelector('#result5').innerHTML = str;
+	}
+	
+	const proc6 = () => {
+		buyDay = new Date(document.getElementById('getDate').value);
+		
+		gapDate = (today1.getTime() - buyDay.getTime())/1000/60/60/24;
+		
+		str = `오늘 : ${today1.toLocaleDateString()} <br>
+			   구매 : ${buyDay.toLocaleDateString()} <br>
+			   교환 가능 여부 : `;
+		if(gapDate > 7) str += "교환 불가";
+		else str += "교환 가능";
+		
+		document.querySelector('#result6').innerHTML = str;
+	}
+	
+</script>
+</head>
+<body>
+	<div class="box">
+		<h3>날짜 출력</h3>
+		<input type="button" value="확인" onclick="proc1()"> <br> <br>
+		<div id="result1"></div>
+	</div>
+	
+	<div class="box">
+		<h3>요일 구하기 <br>
+		getDay() : 0 ~ 6 값을 반환 <br>
+		if ~ else / switch 사용</h3>
+		<input type="button" value="확인" onclick="proc2()"> <br> <br>
+		<div id="result2"></div>
+	</div>
+	
+	<div class="box">
+		<h3>요일 구하기 <br>
+		getDay() : 0 ~ 6 값을 반환 <br>
+		배열 사용</h3>
+		<input type="button" value="확인" onclick="proc3()"> <br> <br>
+		<div id="result3"></div>
+	</div>
+	
+	<div class="box">
+		<h3>생년월일로부터 현재까지 경과한 연, 일수 <br>
+		getTime() : milliseconds값을 반환 <br>
+		배열 사용</h3>
+		<input type="button" value="확인" onclick="proc4()"> <br> <br>
+		<div id="result4"></div>
+	</div>
+	
+	<div class="box">
+		<h3>500일 이후의 날짜 구하기 <br> </h3>
+		<input type="button" value="확인" onclick="proc5()"> <br> <br>
+		<div id="result5"></div>
+	</div>
+	
+	<div class="box">
+		<h3>구입 날짜를 입력받고, 교환 기한 구하기<br> </h3>
+		구입날짜 : <input type="date" id="getDate">
+		<input type="button" value="확인" onclick="proc6()"> <br> <br>
+		<div id="result6"></div>
+	</div>
+</body>
+</html>

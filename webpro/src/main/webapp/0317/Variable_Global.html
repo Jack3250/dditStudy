@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div {
+	border: 1px solid blue;
+	height: 100px;
+}
+</style>
+<script>
+	function proc1() {
+		a = 24;
+		b = 38;
+
+		add(a, b);
+		
+		res= `${a} + ${b} = ${sum}`;
+		
+		document.getElementById('result').innerText = res;
+	}
+	const add = function(x, y) {
+		sum = x + y;
+	}
+</script>
+
+</head>
+<body>
+	<input type="button" value="확인" onclick="proc1()">
+	<br>
+	<br>
+	<div id="result">0</div>
+</body>
+</html>

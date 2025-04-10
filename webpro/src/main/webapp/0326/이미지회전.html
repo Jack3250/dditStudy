@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+img {
+	width : 100px;
+	height: auto;
+}
+</style>
+<script>
+let gstop = null;
+let child = null;
+
+const start = (target) => {
+	if(gstop != null) gstop.style.display = "inline";
+	
+	target.style.display = "none";
+	
+	gtarget = target;
+	
+	if(child != null) child[rand].style.border = "none";
+	
+	vres = document.getElementById('result1');
+	
+	child = vres.children;
+		
+	vtime = setInterval(roll, 50);
+}
+
+const roll = () => {
+	vres.appendChild(child[0]);
+}
+
+const end = (stop) => {
+	gtarget.style.display = "inline";
+	
+	stop.style.display = "none";
+	
+	gstop = stop;
+	
+	clearInterval(vtime);
+	
+	rand = Math.floor(Math.random() * child.length);
+	
+	child[rand].style.border = "5px double red";
+}
+
+</script>
+</head>
+<body>
+	<div class="box">
+		<div id="result1">
+			<img src="../images/딸기스무디.jpg" alt="딸기스무디.jpg">
+			<img src="../images/컴퓨터3.jpg" alt="컴퓨터3.jpg">
+			<img src="../images/가구1.jpg" alt="가구1.jpg">
+			<img src="../images/식품2.jpg" alt="식품2.jpg">
+			<img src="../images/스포츠1.jpg" alt="스포츠1.jpg">
+			<img src="../images/에스프레소.jpg" alt="에스프레소.jpg">
+			<img src="../images/옷2.jpg" alt="옷2.jpg">
+		</div>
+		<div id="control">
+			<h3>환영합니다 시작버튼을 클릭하세요 당신에게 행운을 드립니다.</h3>
+			<input type="button" value="시작" onclick="start(this)">
+			<input type="button" value="종료" onclick="end(this)">
+		</div>
+	</div>
+</body>
+</html>

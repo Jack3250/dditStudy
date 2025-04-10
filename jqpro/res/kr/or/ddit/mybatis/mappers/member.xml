@@ -6,4 +6,11 @@
 		SELECT *
 		FROM MEMBER
 	</select>
+	
+	<select id="memberLogin" resultType="MemberVo" parameterType="MemberVo">
+		SELECT *
+		FROM MEMBER
+		WHERE MEM_ID = #{mem_id}
+		AND MEM_PASS = #{mem_pass}
+	</select>
 </mapper>

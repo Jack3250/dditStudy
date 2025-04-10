@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<form action="select.jsp" method="post">
+		<select name="cars1">
+			<option value="BMW">BMW</option>
+			<option value="Benz">Benz</option>
+			<option value="Hyndai">Hyndai</option>
+			<option value="Kia" selected="selected">Kia</option>
+			<option value="Lexus" selected="selected">Lexus</option>
+			<!-- selected 여러개는 가능하지만 마지막만 적용 -->
+			<option value="Jeep">Jeep</option>
+			<option value="Ford">Ford</option>
+		</select>
+		<br>
+		<br>
+		<select name="cars2" multiple="multiple" size="5">
+			<!-- size : 보이는 갯수를 의미 -->
+			<!-- multiple : ctrl키 눌러서 여러개 선택 가능 -->
+			<option value="BMW">BMW</option>
+			<option value="Benz">Benz</option>
+			<option value="Hyndai">Hyndai</option>
+			<option value="Kia" selected="selected">Kia</option>
+			<option value="Lexus" selected="selected">Lexus</option>
+			<option value="Jeep">Jeep</option>
+			<option value="Ford">Ford</option>
+		</select>
+		<br>
+		<br>
+		<button>전송</button>
+		
+	
+	</form>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    h2 {
+      text-align: center;
+    }
+
+    section ul {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      list-style: none;
+      padding: 0;
+    }
+
+    section li {
+      border: 1px solid gray;
+      padding: 10px;
+      margin: 10px;
+    }
+
+    section li a {
+      text-decoration-line: none;
+      color: black;
+    }
+
+    section img {
+      width: 100%;
+    }
+
+    .prod_name {
+      font-weight: bold;
+      font-size: 1rem;
+      height: 70px;
+      overflow: auto;
+    }
+
+    .prod_price {
+      font-size: 1.1rem;
+    }
+  </style>
+
+</head>
+
+<body>
+  <h2>가구/인테리어</h2>
+  <section>
+    <ul>
+      <li>
+      	<div class="product">
+	        <a href="#">
+	          <img src="../images/가구1.jpg" alt="가구1.jpg">
+	        </a>
+	        <p class="prod_name">컴포트 패브릭 소파 3인용</p>
+	        <p class="prod_price">200,000원</p>
+      	</div>
+      </li>
+      <li>
+      	<div class="product">
+	        <a href="#">
+	          <img src="../images/가구2.jpg" alt="가구2.jpg">
+	        </a>
+	        <p class="prod_name">무드 모던 거실장세트 2400</p>
+	        <p class="prod_price">300,000원</p>
+      	</div>
+      </li>
+      <li>
+      	<div class="product">
+	        <a href="#">
+	          <img src="../images/가구3.jpg" alt="가구3.jpg">
+	        </a>
+	        <p class="prod_name">원목 분리형 2층침대</p>
+	        <p class="prod_price">600,000원</p>
+      	</div>
+      </li>
+    </ul>
+  </section>
+</body>
+
+</html>

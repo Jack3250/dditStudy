@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+div {
+	border: 3px solid red;
+	margin: 20px;
+}
+
+span {
+	color: red;
+	width: 250px;
+	height: 40px;
+/* 	인라인 요소이기때문에 크기 지정이 적용이 안됨 */
+	display: inline-block;
+/* 	크기 지정을 위해서는 display 사용 */
+}
+
+p{
+	border : 2px solid green;
+	margin: 10px; 
+}
+</style>
+
+</head>
+<body>
+	<div>
+		<h2>DIV와 SPAN</h2>
+		<p>
+			DIV와 SPAN은 특별한 기능을 가진 요소는 아니지만<br> 특정 요소나 텍스트를 묶어 <span>스타일이나
+				스크립트를 정의</span> 할 때 많이 사용되는 태그이다.
+				
+			span태그는 inline 요소이다. width height 속성이 실행되지 않는다<br>
+			width height를 지정하고자 할 때는 display : inline-block 스타일을 지정 후 변경한다.
+		</p>
+	</div>
+
+	<div>
+		<h2>DIV와 SPAN</h2>
+		<p>
+			DIV와 SPAN은 특별한 기능을 가진 요소는 아니지만<br> 특정 요소나 텍스트를 묶어 <span>스타일이나
+				스크립트를 정의</span> 할 때 많이 사용되는 태그이다.
+		</p>
+	</div>
+
+</body>
+</html>

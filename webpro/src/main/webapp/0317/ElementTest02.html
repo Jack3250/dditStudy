@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	const proc1 = function(){
+		ptag = document.getElementsByTagName('p');
+		console.log(ptag);
+		
+		for(let i=0; i<ptag.length; i++) {
+			ptag[i].style.color = 'red';
+		}
+		/*
+		getElementsByTagName으로 요소를 찾으면, forEach문을 사용 할 수 없음.
+		ptag.forEach(function(item){
+			item.style.color = 'red';
+		})
+		*/
+		
+// 		ptag = document.querySelector('p');
+// 		console.log(ptag);
+		
+// 		ptag = document.querySelectorAll('p');
+// 		console.log(ptag);
+// 		for(let i=0; i<ptag.length; i++) {
+// 			ptag[i].style.color = 'blue';
+// 		}
+// 		ptag.forEach(function(p){
+// 			p.style.color = 'green';
+// 		})
+	}
+</script>
+</head>
+<body>
+<input type="button" value="확인" onclick="proc1()">
+<p>무궁화 꽃이 피었습니다</p>
+<p>능소화 꽃이 피었습니다</p>
+<p>수선화 꽃이 피었습니다</p>
+<p>라일락 꽃이 피었습니다</p>
+<p>진달래 꽃이 피었습니다</p>
+</body>
+</html>

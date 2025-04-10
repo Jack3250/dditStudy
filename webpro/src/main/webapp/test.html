@@ -1,0 +1,1259 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=0,maximum-scale=10,user-scalable=yes">
+<meta name="description" content="4차산업혁명, 코딩교육, 소프트웨어교육, 코딩기초, SW코딩, 기초코딩부터 자바 파이썬 등">
+<meta property="og:type" content="website">
+<meta property="og:title" content="코딩교육 티씨피스쿨">
+<meta property="og:description" content="4차산업혁명, 코딩교육, 소프트웨어교육, 코딩기초, SW코딩, 기초코딩부터 자바 파이썬 등">
+<meta property="og:image" content="http://tcpschool.com/img/tcpschool_og_logo.png">
+<meta property="og:url" content="http://tcpschool.com">
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>코딩의 시작, TCP School</title>
+
+<link rel="stylesheet" href="https://www.tcpschool.com:443/cssfile/default.css">
+<link rel="stylesheet" href="https://www.tcpschool.com:443/skin/visit/basic/style.css">
+
+<!--[if lte IE 8]>
+<script src="https://www.tcpschool.com:443/js/html5.js"></script>
+<![endif]-->
+<script>
+// 자바스크립트에서 사용하는 전역변수 선언
+var g5_url       = "https://www.tcpschool.com:443";
+var g5_bbs_url   = "https://www.tcpschool.com:443/bbs";
+var g5_is_member = "";
+var g5_is_admin  = "";
+var g5_is_mobile = "";
+var g5_bo_table  = "";
+var g5_sca       = "";
+var g5_editor    = "";
+var g5_cookie_domain = "";
+</script>
+<!-- Global site tag (gtag.js) - AdWords: 815150487 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-815150487"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'AW-815150487');
+</script>
+<script src="https://www.tcpschool.com:443/js/jquery-1.8.3.min.js"></script>
+<script src="https://www.tcpschool.com:443/js/jquery.menu.js"></script>
+<script src="https://www.tcpschool.com:443/js/common.js"></script>
+<script src="https://www.tcpschool.com:443/js/wrest.js"></script>
+<script src="https://www.tcpschool.com:443/js/swiper.min.js"></script>
+<script src="https://www.tcpschool.com:443/js/dropdown.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+
+<link rel="stylesheet" type="text/css" href="/cssfile/style_new.css" />
+<!--
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+-->
+	
+ 
+<link rel="stylesheet" href="/cssfile/github.css">
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+ 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1448797817368261" crossorigin="anonymous"></script>
+
+
+</head>
+<body class="">
+
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-86934860-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<script>
+var mb_id = "";
+var p_id = "246";
+var cur_url = location.pathname;
+
+showPopup = function() {
+	//$("#popLayer").show();
+	//$("#popLayer").center();
+
+	var ww = $(window).width();
+	var st = $(window).scrollTop();
+
+	if(!mb_id){
+		alert("로그인이 필요합니다.");
+		location.href = "/bbs/login.php";
+
+	} else {
+
+		var ask = confirm("책갈피에 저장하시겠습니까?");
+		//	console.log("cur_url : " + cur_url);
+	}
+
+	if(ask){
+
+		$.post( 
+			"/bbs/ajax_bookmark.php",
+			{ mb_id: mb_id, p_id:p_id, ww: ww, st:st })
+			.done(function( data ) {
+			//alert( "Data Loaded: " + data );
+			});
+		
+		var askAgain = confirm("저장되었습니다.\n바로 확인하시겠습니까?");
+
+		if(askAgain)
+			location.href="/bbs/bookmark.php";
+		
+	}
+}
+</script>
+<div id="btn_bookmark">..
+	<!-- <ul>
+		<li><a href="http://rhythm.no1hsk.co.kr/" target="_blank"><img src="/img/banner1.png" alt="배너1" /></a></li>
+		<li><a href="#"><img src="/img/banner2.png" alt="배너2" /></a></li>
+		<li><a href="http://www.kiara.or.kr" target="_blank"><img src="/img/banner1.png" alt="배너1" /></a></li>
+		<li><a href="http://rhythm.no1hsk.co.kr/" target="_blank"><img src="/img/banner2.png" alt="배너2" /></a></li>
+		<li><a href="#"><img src="/img/banner3.png" alt="배너3" /></a></li>
+	</ul> -->
+	<a href="javascript:;" onclick="javascript:showPopup();"><img src="/img/plus.png" class="plus"></a>
+</div>
+
+
+<!-- 검색결과 -->
+<div id="lightSearchView" class="white_content search-view">
+	<h1>Search</h1>
+	<a href = "javascript:void(0)" onclick="document.getElementById('lightSearchView').style.display='none';document.getElementById('fade').style.display='none'"><img src="/img/btn-close.png" alt="" class="close"/></a>
+	<!-- 
+	<input type="text" name="" id="" class="uix-form-text keyword" placeholder="검색어를 입력하세요.">
+	<button type="submit" class="uix-button">검색</button> 
+	-->
+
+	<script>
+	  (function() {
+		var cx = '014935096003017821934:tqduiibfzv8';
+		var gcse = document.createElement('script');
+		gcse.type = 'text/javascript';
+		gcse.async = true;
+		gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(gcse, s);
+	  })();
+	</script>
+	<gcse:search></gcse:search>
+
+</div>
+<!-- /검색결과 -->	
+<div id="sb-site">
+	<div class="con-bg"></div>
+	<!-- wrap -->
+	<div id="wrap">
+		<!-- headerwrap -->
+		<div id="headerwrap">
+			<!-- header -->
+			<div id="header">							
+				<a href="#" class="sb-toggle-left"><img src="/img/menu.png" alt="menu" class="menu"/></a>
+				<h1><a href="/"><img src="/img/logo.png" alt="TCPschool" /></a></h1>				
+				<div class='unb'>
+					<a href="/bbs/content.php?co_id=company">TCP SCHOOL 소개</a>
+					<a href="/guide.html">수업가이드</a>
+					
+										<a href="https://www.tcpschool.com:443/bbs/login.php" class="login">로그인</a>
+					<a href="https://www.tcpschool.com:443/bbs/register_form.php"><strong>회원가입</strong></a>
+										
+				</div>
+
+				<div class="sns">
+					<!-- <a href="#"><img src="../img/sns-f.png" alt="facebook" /></a>
+					<a href="#"><img src="../img/sns-y.png" alt="youtube" /></a>
+					<a href="#"><img src="../img/sns-b.png" alt="blog" /></a> -->
+				</div>
+
+				<a href="javascript:void(0)" onclick = "document.getElementById('lightSearchView').style.display='block';document.getElementById('fade').style.display='block'"><img src="/img/btn-search2.png" alt="검색" class="btn-search-mobile"/></a>
+				
+								<a href="https://www.tcpschool.com:443/bbs/login.php" class="btn-member"><img src="../img/btn-member.png" alt="회원" /></a>
+				
+				<!-- <form class="header-search" method="post" action="">
+					<input type="text" name="" id=""><button type="submit" class="uix-button">검색</button>
+				</form> -->
+			
+                <!-- 대카테고리 "자격증 정보" 추가/주석 YHJ 2024-04-08 tail.php 좌측 햄버거메뉴 연동체크 -->
+				<div id="gnb">
+					<ul class="gw">
+						<li><a href="/webbasic/intro">코딩 이야기</a></li>
+						<li><a href="/html/intro">코딩의 첫걸음</a></li>
+						<li><a href="/php/intro">코딩과 데이터</a></li>
+						<li><a href="/jquery/intro">데이터와 소통</a></li>
+						<li><a href="/java/intro">코딩의 고수</a></li>	
+						<!-- <li><a href="javascript:alert('준비중'); document.location.replace('/index.php');">자격증 정보</a></li> -->
+						<!-- <li><a href="/bbs/content.php?co_id=tcpi" style="color:red;">자격증 정보</a></li> -->	
+					</ul>
+					
+					<div id="gnb_sub">
+						<ul>
+							<li>
+								<a href="/webbasic/intro">
+									<small>인터넷의 이해</small>
+									Web Basic
+								</a>
+							</li>
+							<li>
+								<a href="/codingmath/intro">
+									<small>코딩 사고</small>
+									코딩수학
+								</a>
+							</li>
+							<li>
+								<a href="/deeplearning/intro">
+									<small>스스로 학습</small>
+									Deep Learning
+								</a>
+							</li>
+							<li>
+								<a href="/deep2018/intro">
+									<small>2018년도 개정판</small>
+									딥러닝<sub>(개정판)</sub>
+								</a>
+							</li>
+						</ul>
+						<ul>
+							<li>
+								<a href="/html/intro">
+									<small>코딩의 첫걸음</small>
+									HTML
+								</a>
+                            </li>
+                            <li>
+                                <a href="/html-tags/intro">
+                                    <small>HTML 태그의 모든 것</small>
+                                    HTML Tag 레퍼런스
+                                </a>
+                            </li>
+							<li>
+								<a href="/css/intro">
+									<small>웹 페이지의 스타일</small>
+									CSS
+								</a>
+							</li>
+							<li>
+								<a href="/javascript/intro">
+									<small>모션을 넣은 웹 프로그래밍</small>
+									JavaScript
+								</a>
+							</li>
+						</ul>
+						<ul>
+							<li>
+								<a href="/php/intro">
+									<small>웹 서버 프로그램 대표</small>
+									PHP
+								</a>
+							</li>
+							<li>
+								<a href="/python/intro">
+									<small>요즘 뜨는 언어</small>
+									Python
+								</a>
+							</li>
+							<li>
+								<a href="/python2018/intro">
+									<small>2018년도 개정판</small>
+									Python<sub>(개정판)</sub>
+								</a>
+							</li>
+							<li>
+								<a href="/mysql/intro">
+									<small>데이터 저장</small>
+									MySQL
+								</a>
+							</li>
+						</ul>
+						<ul>
+							<li>
+								<a href="/jquery/intro">
+									<small>자바스크립트를 쉽고 빠르게</small>
+									JQuery
+								</a>
+							</li>
+							<li>
+								<a href="/xml/intro">
+									<small>데이터를 내 맘대로</small>
+									XML
+								</a>
+							</li>
+							<li>
+								<a href="/ajax/intro">
+									<small>웹 페이지와 대화를</small>
+									AJAX
+								</a>
+							</li>
+							<li>
+								<a href="/json/intro">
+									<small>빠르게 읽는 데이터 포맷</small>
+									JSON
+								</a>
+							</li>
+						</ul>
+						<ul>
+							<li>
+								<a href="/java/intro">
+									<small>대표적인 객체 지향언어</small>
+									JAVA
+								</a>
+							</li>
+							<li>
+								<a href="/c/intro">
+									<small>시스템 프로그래밍 </small>
+									C
+								</a>
+							</li>
+							<li>
+								<a href="/cpp/intro">
+									<small>C+ 객체 지향</small>
+									C++
+								</a>
+							</li>
+							<li>
+								<a href="/react/intro">
+									<small>풀스택 개발의 시작</small>
+									React
+								</a>
+							</li>
+						</ul>
+						<ul style="display:none;">
+							<li>
+								<a href="/bbs/content.php?co_id=tcpi">
+									<small>코딩지도사</small>
+									코딩지도사 자격정보
+								</a>
+							</li>
+							<li>
+								<a href="/bbs/content.php?co_id=tcp">
+									<small>코딩전문가</small>
+									코딩전문가 자격정보
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+
+			</div>
+			<!-- /header -->
+		</div>
+		<!-- /headerwrap -->
+		
+
+		
+
+
+		<!-- containerwrap -->
+		<div id="containerwrap">
+
+		
+			<!-- <script>
+				function init_lnb_height() {
+					var lnb_h = $(window).height() - 600;
+					$("#containerwrap #container #lnb").height( lnb_h );
+				}
+				$(document).ready(function() {
+					init_lnb_height();
+				});
+				$(window).resize(function() {
+					init_lnb_height();
+				});
+			</script> -->
+			
+			<div id="sv"></div>
+			<!-- container -->
+			<div id="container">		
+				
+				<h2 class="tcp_contents_h2">46) 노드로의 접근</h2>				
+
+				<!-- lnb -->
+				<div id="lnb">
+					<h2>46) 노드로의 접근</h2>
+					<ul>
+						
+
+												<li class="lnb_list_sep">1. 자바스크립트 시작</li>
+						
+
+						
+
+												<li><a href="/javascript/intro" >1) 자바스크립트 개요</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_intro_basic" >2) 자바스크립트 기초</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_intro_intro" >3) 자바스크립트 소개</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_intro_syntax" >4) 자바스크립트 문법</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_intro_output" >5) 자바스크립트 출력</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_intro_apply" >6) 자바스크립트 적용</a></li>
+						
+
+						
+
+												<li class="lnb_list_sep">2. 타입</li>
+						
+
+						
+
+												<li><a href="/javascript/js_datatype_basic" >7) 기본 타입</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_datatype_typeConversion" >8) 타입 변환</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_datatype_variable" >9) 변수</a></li>
+						
+
+						
+
+												<li class="lnb_list_sep">3. 연산자</li>
+						
+
+						
+
+												<li><a href="/javascript/js_operator_arithmetic" >10) 산술 연산자</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_operator_assignment" >11) 대입 연산자</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_operator_incAndDec" >12) 증감 연산자</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_operator_comparison" >13) 비교 연산자</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_operator_logic" >14) 논리 연산자</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_operator_bitwise" >15) 비트 연산자</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_operator_etc" >16) 기타 연산자</a></li>
+						
+
+						
+
+												<li class="lnb_list_sep">4. 제어문</li>
+						
+
+						
+
+												<li><a href="/javascript/js_control_condition" >17) 조건문</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_control_loop" >18) 반복문</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_control_etc" >19) 기타 제어문</a></li>
+						
+
+						
+
+												<li class="lnb_list_sep">5. 배열</li>
+						
+
+						
+
+												<li><a href="/javascript/js_array_basic" >20) 배열의 기초</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_array_application" >21) 배열의 활용</a></li>
+						
+
+						
+
+												<li class="lnb_list_sep">6. 함수</li>
+						
+
+						
+
+												<li><a href="/javascript/js_function_basic" >22) 함수의 기초</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_function_variableScope" >23) 변수의 유효 범위</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_function_functionScope" >24) 함수의 유효 범위</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_function_parameterArgument" >25) 매개변수와 인수</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_function_predefinedFunction" >26) 미리 정의된 전역 함수</a></li>
+						
+
+						
+
+												<li class="lnb_list_sep">7. 객체</li>
+						
+
+						
+
+												<li><a href="/javascript/js_object_concept" >27) 객체의 개념</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_object_create" >28) 객체의 생성</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_object_prototype" >29) 프로토타입</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_object_handling" >30) 객체 다루기</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_object_propertyMethod" >31) 객체 프로퍼티와 메소드</a></li>
+						
+
+						
+
+												<li class="lnb_list_sep">8. 표준 객체</li>
+						
+
+						
+
+												<li><a href="/javascript/js_standard_object" >32) 전역 객체와 래퍼 객체</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_standard_number" >33) Number 객체</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_standard_numberMethod" >34) Number 메소드</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_standard_math" >35) Math 객체</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_standard_date" >36) Date 객체</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_standard_dateMethod" >37) Date 메소드</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_standard_string" >38) String 객체</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_standard_stringMethod" >39) String 메소드</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_standard_array" >40) Array 객체</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_standard_arrayMethod" >41) Array 메소드</a></li>
+						
+
+						
+
+												<li class="lnb_list_sep">9. 문서 객체 모델</li>
+						
+
+						
+
+												<li><a href="/javascript/js_dom_concept" >42) DOM의 개념</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_dom_document" >43) Document 객체</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_dom_element" >44) DOM 요소</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_dom_node" >45) 노드</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_dom_nodeAccess" class="on">46) 노드로의 접근</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_dom_nodeList" >47) 노드 리스트</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_dom_nodeManage" >48) 노드의 관리</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_dom_nodeHandle" >49) 노드의 조작</a></li>
+						
+
+						
+
+												<li class="lnb_list_sep">10. 브라우저 객체 모델</li>
+						
+
+						
+
+												<li><a href="/javascript/js_bom_window" >50) Window 객체</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_bom_location" >51) Location 객체</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_bom_history" >52) History 객체</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_bom_screen" >53) Screen 객체</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_bom_navigator" >54) Navigator 객체</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_bom_dialogBox" >55) 대화 상자</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_bom_timer" >56) 타이머</a></li>
+						
+
+						
+
+												<li class="lnb_list_sep">11. 이벤트</li>
+						
+
+						
+
+												<li><a href="/javascript/js_event_concept" >57) 이벤트의 개념</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_event_eventListenerRegister" >58) 이벤트 리스너 등록</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_event_eventListenerCall" >59) 이벤트 리스너 호출</a></li>
+						
+
+						
+
+												<li class="lnb_list_sep">12. 예외 처리</li>
+						
+
+						
+
+												<li><a href="/javascript/js_exception_exception" >60) 예외 처리</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_exception_strict" >61) Strict 모드</a></li>
+						
+
+						
+
+												<li class="lnb_list_sep">13. 정규 표현식</li>
+						
+
+						
+
+												<li><a href="/javascript/js_regularExpression_concept" >62) 정규 표현식의 개념</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_regularExpression_application" >63) 정규 표현식의 응용</a></li>
+						
+
+						
+
+												<li><a href="/javascript/js_regularExpression_regexp" >64) RegExp 객체</a></li>
+						
+
+											</ul>
+
+				</div>
+				<!-- /lnb -->
+				<div id="content">		
+					<div id="cont">
+		
+
+		
+
+
+
+<div class="editor-template">
+<div class="btn-prev-next">
+		<a href="/javascript/js_dom_node" class="prev btn01 col1">◀ 이전</a>
+			<a href="/javascript/js_dom_nodeList" class="next btn01 col1">다음 ▶</a>
+	</div>
+</div>
+
+
+<!-- editor-template -->
+<div class="editor-template">
+<h3>노드로의 접근</h3>
+
+<hr />
+<h4>노드로의 접근</h4>
+
+<p>HTML 문서에서 HTML&nbsp;DOM 노드에 접근하는&nbsp;방법은 다음과 같습니다.</p>
+
+<p>&nbsp;</p>
+
+<p>1. getElementsByTagName() 메소드를&nbsp;이용하는 방법</p>
+
+<p>2. 노드&nbsp;간의 관계를 이용하여 접근하는 방법</p>
+
+<hr />
+<h4>getElementsByTagName() 메소드를&nbsp;이용하는 방법</h4>
+
+<p>getElementsByTagName() 메소드는&nbsp;특정 태그 이름을 가지는&nbsp;모든 요소를 노드 리스트의 형태로&nbsp;반환합니다.</p>
+
+<p>따라서 이 메소드가 반환하는 노드 리스트를 이용하면 원하는 노드에 접근할 수 있습니다.</p>
+
+<p>&nbsp;</p>
+
+<p>이 메소드에 대한 더 자세한 사항은 자바스크립트 DOM 요소 수업에서 확인할 수 있습니다.</p>
+
+<p>&nbsp;</p>
+
+<p><a href="/javascript/js_dom_element" target="_blank">자바스크립트 DOM 요소 수업 확인 =&gt;</a></p>
+
+<hr />
+<h4>노드&nbsp;간의 관계를 이용하여 접근하는 방법</h4>
+
+<p>HTML DOM에서 노드 간의 관계는 다음과 같은 프로퍼티로 정의됩니다.</p>
+
+<p>&nbsp;</p>
+
+<p>1. parentNode : 부모 노드</p>
+
+<p>2. childNodes : 자식 노드 리스트</p>
+
+<p>3. firstChild : 첫 번째 자식 노드</p>
+
+<p>4. lastChild : 마지막 자식 노드</p>
+
+<p>5. nextSibling : 다음 형제 노드</p>
+
+<p>6. previousSibling : 이전 형제 노드</p>
+
+<p>&nbsp;</p>
+
+<p>위와 같은 프로퍼티를&nbsp;이용하여&nbsp;원하는 노드에 손쉽게 접근할 수 있습니다.</p>
+
+<hr />
+<h4>노드에 대한&nbsp;정보</h4>
+
+<p>노드에 대한 정보는 다음과 같은 프로퍼티를 통해&nbsp;접근할 수 있습니다.</p>
+
+<p>&nbsp;</p>
+
+<p>1.&nbsp;nodeName</p>
+
+<p>2. nodeValue</p>
+
+<p>3. nodeType</p>
+
+<p>&nbsp;</p>
+
+<p>이 프로퍼티들은 특별히 다른&nbsp;인터페이스를 이용하지 않고도, 해당 노드의&nbsp;정보에 직접 접근할 수 있는&nbsp;방법을 제공합니다.</p>
+
+<hr />
+<h4>nodeName</h4>
+
+<p>nodeName 프로퍼티는 노드&nbsp;고유의 이름을 저장하므로, 수정할 수 없는 읽기 전용 프로퍼티입니다.</p>
+
+<p>&nbsp;</p>
+
+<p>요소 노드의 nodeName&nbsp;프로퍼티는&nbsp;언제나 해당 HTML 요소의 태그 이름을 대문자로 저장합니다.</p>
+
+<table class="tb-2" summary="">
+	<thead>
+		<tr class="bg">
+			<th style="width: 50%;">노드</th>
+			<th>프로퍼티 값</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+			<p>문서 노드(document node)</p>
+			</td>
+			<td>#document</td>
+		</tr>
+		<tr>
+			<td>
+			<p>요소 노드(element node)</p>
+			</td>
+			<td>태그 이름 (영문자로 대문자)</td>
+		</tr>
+		<tr>
+			<td>
+			<p>속성 노드(attribute node)</p>
+			</td>
+			<td>속성 이름</td>
+		</tr>
+		<tr>
+			<td>텍스트 노드(text node)</td>
+			<td>#text</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp;</p>
+
+<div class="codding-test">
+<h5>예제</h5>
+
+<p class="textarea"><span style="color:#5a525f;font-style:italic">// HTML 문서의 모든 자식 노드 중에서 두 번째 노드의 이름을 선택함.</span></p>
+
+<p class="textarea"><span style="color:#691c97">document</span>.<span style="color:#693a17">getElementById</span>(<span style="color:#0b6125">&quot;document&quot;</span>).innerHTML <span style="color:#794938">=</span> <span style="color:#691c97">document</span>.<span style="color:#b4371f">childNodes</span>[<span style="color:#811f24;font-weight:700">1</span>].<span style="color:#b4371f">nodeName</span>;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <span style="color:#5a525f;font-style:italic">// HTML</span></p>
+
+<p class="textarea">&nbsp;</p>
+
+<p class="textarea"><span style="color:#5a525f;font-style:italic">// html 노드의 모든 자식 노드 중에서 첫 번째 노드의 이름을 선택함.</span></p>
+
+<p class="textarea"><span style="color:#691c97">document</span>.<span style="color:#693a17">getElementById</span>(<span style="color:#0b6125">&quot;html&quot;</span>).innerHTML <span style="color:#794938">=</span> <span style="color:#691c97">document</span>.<span style="color:#b4371f">childNodes</span>[<span style="color:#811f24;font-weight:700">1</span>].<span style="color:#b4371f">childNodes</span>[<span style="color:#811f24;font-weight:700">0</span>].<span style="color:#b4371f">nodeName</span>;&nbsp;<span style="color:#5a525f;font-style:italic">// HEAD</span></p>
+
+<p><a class="btn02 btn_submit" href="/examples/tryit/tryhtml.php?filename=js_dom_nodeAccess_01" target="_blank">코딩연습 ▶</a></p>
+</div>
+
+<p>&nbsp;</p>
+
+<p>위의 예제에서 HTML 문서의&nbsp;첫 번째 자식 노드는 &lt;!DOCTYPE html&gt;이며, 두 번째 자식 노드는 &lt;html&gt;입니다.</p>
+
+<p>또한, &lt;html&gt;노드의&nbsp;첫 번째 자식 노드는 &lt;head&gt;이며, 세&nbsp;번째 자식 노드는 &lt;body&gt;입니다.</p>
+
+<hr />
+<h4>nodeValue</h4>
+
+<p>nodeValue 프로퍼티는&nbsp;노드의 값을 저장합니다.</p>
+
+<table class="tb-2" summary="">
+	<thead>
+		<tr class="bg">
+			<th style="width: 50%;">노드</th>
+			<th>프로퍼티 값</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+			<p>요소 노드(element node)</p>
+			</td>
+			<td>undefined</td>
+		</tr>
+		<tr>
+			<td>
+			<p>속성 노드(attribute node)</p>
+			</td>
+			<td>해당 속성의 속성값</td>
+		</tr>
+		<tr>
+			<td>텍스트 노드(text node)</td>
+			<td>해당 텍스트 문자열</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp;</p>
+
+<div class="codding-test">
+<h5>예제</h5>
+
+<p class="textarea"><span style="color:#5a525f;font-style:italic">// 아이디가 &quot;heading&quot;인 요소의 첫 번째 자식 노드의 노드값을 선택함.</span></p>
+
+<p class="textarea"><span style="color:#a71d5d;font-style:italic">var</span> headingText <span style="color:#794938">=</span> <span style="color:#691c97">document</span>.<span style="color:#693a17">getElementById</span>(<span style="color:#0b6125">&quot;heading&quot;</span>).<span style="color:#b4371f">firstChild</span>.<span style="color:#b4371f">nodeValue</span>;</p>
+
+<p class="textarea">&nbsp;</p>
+
+<p class="textarea"><span style="color:#691c97">document</span>.<span style="color:#693a17">getElementById</span>(<span style="color:#0b6125">&quot;text1&quot;</span>).innerHTML <span style="color:#794938">=</span> headingText;</p>
+
+<p class="textarea"><span style="color:#691c97">document</span>.<span style="color:#693a17">getElementById</span>(<span style="color:#0b6125">&quot;text1&quot;</span>).<span style="color:#b4371f">firstChild</span>.<span style="color:#b4371f">nodeValue</span> <span style="color:#794938">=</span> headingText;</p>
+
+<p><a class="btn02 btn_submit" href="/examples/tryit/tryhtml.php?filename=js_dom_nodeAccess_02" target="_blank">코딩연습 ▶</a></p>
+</div>
+
+<p>&nbsp;</p>
+
+<p>지금까지 innerHTML 프로퍼티를 사용하여 손쉽게&nbsp;HTML 요소의 내용(content)에 접근하거나,&nbsp;내용을 변경할 수 있었습니다.</p>
+
+<p>이러한 innerHTML 프로퍼티 대신에&nbsp;firstChild.nodeValue를 사용해도 같은 결과를 얻을 수 있습니다.</p>
+
+<hr />
+<h4>nodeType</h4>
+
+<p>nodeType 프로퍼티는&nbsp;노드 고유의 타입을 저장하므로, 수정할 수 없는 읽기 전용 프로퍼티입니다.</p>
+
+<p>&nbsp;</p>
+
+<p>대표적인 HTML&nbsp;노드별 nodeType 프로퍼티 값은 다음과 같습니다.</p>
+
+<table class="tb-2" summary="">
+	<thead>
+		<tr class="bg">
+			<th style="width: 50%;">노드</th>
+			<th>프로퍼티 값</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+			<p>요소 노드(element node)</p>
+			</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td>
+			<p>속성 노드(attribute node)</p>
+			</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td>텍스트 노드(text node)</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td>주석 노드(comment node)</td>
+			<td>8</td>
+		</tr>
+		<tr>
+			<td>문서 노드(document node)</td>
+			<td>9</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp;</p>
+
+<div class="codding-test">
+<h5>예제</h5>
+
+<p class="textarea"><span style="color:#5a525f;font-style:italic">// 아이디가 &quot;heading&quot;인 요소의 첫 번째 자식 노드의 타입을 선택함.</span></p>
+
+<p class="textarea"><span style="color:#a71d5d;font-style:italic">var</span> headingType <span style="color:#794938">=</span> <span style="color:#691c97">document</span>.<span style="color:#693a17">getElementById</span>(<span style="color:#0b6125">&quot;heading&quot;</span>).<span style="color:#b4371f">firstChild</span>.<span style="color:#b4371f">nodeType</span>;</p>
+
+<p class="textarea">&nbsp;</p>
+
+<p class="textarea"><span style="color:#691c97">document</span>.<span style="color:#693a17">getElementById</span>(<span style="color:#0b6125">&quot;head&quot;</span>).innerHTML <span style="color:#794938">=</span> headingType;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <span style="color:#5a525f;font-style:italic">// 3</span></p>
+
+<p class="textarea"><span style="color:#691c97">document</span>.<span style="color:#693a17">getElementById</span>(<span style="color:#0b6125">&quot;document&quot;</span>).innerHTML <span style="color:#794938">=</span> <span style="color:#691c97">document</span>.<span style="color:#b4371f">nodeType</span>;&nbsp;<span style="color:#5a525f;font-style:italic">// 9</span></p>
+
+<p><a class="btn02 btn_submit" href="/examples/tryit/tryhtml.php?filename=js_dom_nodeAccess_03" target="_blank">코딩연습 ▶</a></p>
+</div>
+
+<hr />
+<h4>빈 텍스트 노드의 처리</h4>
+
+<p>현재 대부분의 주요 웹 브라우저는 모두 W3C DOM 모델을 지원하지만, 그 처리&nbsp;방식에 있어 약간씩의 차이가 있습니다.</p>
+
+<p>그중에서도 가장 큰 차이점은 띄어쓰기와 줄 바꿈을 처리하는 방식입니다.</p>
+
+<p>&nbsp;</p>
+
+<p>파이어폭스나 기타 브라우저들은 띄어쓰기나 줄 바꿈을 텍스트 노드(text node)로 취급합니다.</p>
+
+<p>하지만 익스플로러는 띄어쓰기나 줄 바꿈을 텍스트 노드로 취급하지 않습니다.</p>
+
+<p>&nbsp;</p>
+
+<p>따라서 자식 노드나 형제 노드를 이용하여 원하는 노드에 접근하려고 하면&nbsp;브라우저 간에 차이가 발생하게 됩니다.</p>
+
+<p>이 차이를 없애는 가장 손쉬운 방법은&nbsp;nodeType 프로퍼티를&nbsp;사용하여 선택된 요소의 타입을 검사하는 것입니다.</p>
+
+<div class="codding-test">
+<h5>예제</h5>
+
+<p class="textarea"><span style="color:#a71d5d;font-style:italic">var</span> lastNode;</p>
+
+<p class="textarea"><span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">findLastChild</span>(parentNode) {</p>
+
+<p class="textarea">&nbsp; &nbsp; lastNode <span style="color:#794938">=</span> parentNode.<span style="color:#b4371f">lastChild</span>;</p>
+
+<p class="textarea">&nbsp; &nbsp; <span style="color:#794938">while</span> (lastNode.<span style="color:#b4371f">nodeType</span> <span style="color:#794938">!</span><span style="color:#794938">=</span> <span style="color:#811f24;font-weight:700">1</span>) {</p>
+
+<p class="textarea">&nbsp; &nbsp; &nbsp; &nbsp; lastNode <span style="color:#794938">=</span> lastNode.<span style="color:#b4371f">previousSibling</span>;</p>
+
+<p class="textarea">&nbsp; &nbsp; }</p>
+
+<p class="textarea">}</p>
+
+<p class="textarea"><span style="color:#a71d5d;font-style:italic">function</span> <span style="color:#bf4f24">printLastChild</span>() {</p>
+
+<p class="textarea">&nbsp; &nbsp; <span style="color:#a71d5d;font-style:italic">var</span> parentNode <span style="color:#794938">=</span> <span style="color:#691c97">document</span>.<span style="color:#693a17">getElementById</span>(<span style="color:#0b6125">&quot;parentNode&quot;</span>);</p>
+
+<p class="textarea">&nbsp; &nbsp; findLastChild(parentNode);</p>
+
+<p class="textarea">&nbsp; &nbsp; <span style="color:#691c97">document</span>.<span style="color:#693a17">getElementById</span>(<span style="color:#0b6125">&quot;nodename&quot;</span>).innerHTML <span style="color:#794938">=</span> lastNode.<span style="color:#b4371f">nodeName</span>;</p>
+
+<p class="textarea">}</p>
+
+<p><a class="btn02 btn_submit" href="/examples/tryit/tryhtml.php?filename=js_dom_nodeAccess_04" target="_blank">코딩연습 ▶</a></p>
+</div>
+
+<p>&nbsp;</p>
+
+<p>위의 예제에서&nbsp;마지막 자식 노드를 찾은 후에, 찾은&nbsp;노드의 타입이&nbsp;요소 노드가 아니면&nbsp;그 앞의 노드를 다시 검사합니다.</p>
+
+<p>이 방식을 사용하면 모든 브라우저에서 마지막 자식 노드로 같은 요소 노드를 선택할 수 있게 됩니다.</p>
+
+<hr />
+<h4>연습문제</h4>
+
+<ul class="btn-exercise">
+	<li><a class="btn02" href="#" target="_blank">연습문제1</a></li>
+	<li><a class="btn02" href="#" target="_blank">연습문제2</a></li>
+	<li><a class="btn02" href="#" target="_blank">연습문제3</a></li>
+	<li><a class="btn02" href="#" target="_blank">연습문제4</a></li>
+	<li><a class="btn02" href="#" target="_blank">연습문제5</a></li>
+</ul>
+
+<hr class="margin-top20 mobile-hidden" /></div>
+<!-- /editor-template -->
+
+<br />
+<div class="editor-template">
+<div class="btn-prev-next">
+		<a href="/javascript/js_dom_node" class="prev btn01 col1">◀ 이전</a>
+			<a href="/javascript/js_dom_nodeList" class="next btn01 col1">다음 ▶</a>
+	</div>
+</div>
+
+
+
+
+
+							</div>					
+				</div>	
+			</div>
+			<!-- /container -->	
+		
+
+
+		
+
+		</div>
+		<!-- /containerwrap -->
+
+
+		<!-- footerwrap -->
+		<div id="footerwrap">
+
+			<div id="footer">
+				<div class="fnb">
+					<a href="/bbs/content.php?co_id=company">TCP SCHOOL 소개</a>
+					<a href="/bbs/content.php?co_id=privacy">개인정보처리방침</a>
+					<a href="/bbs/content.php?co_id=legalview">사이트 이용규정</a>
+					<a href="/bbs/board.php?bo_table=notice">공지사항</a>
+					<a href="/bbs/board.php?bo_table=qna">질문답변</a>
+					<a href="/bbs/board.php?bo_table=pds">소스&팁</a>
+					<a href="/bbs/content.php?co_id=pr">광고/제휴문의</a>
+				</div>
+
+				<div class="info">
+					<!-- 06141 서울시 강남구 테헤란로29길 10, 4층(역삼동 정안빌딩) 티씨피스쿨코리아 주식회사 대표이사: 서연균 <br>사업자등록번호: 788-81-00128<br>
+					통신판매신고번호: 제 000호 (정보조회) 신고기관명: 서울특별시 강남구 -->
+                    
+<!-- 접속자집계 시작 { -->
+<section id="visit">
+    <div>
+        <h2>접속자집계</h2>
+        <dl>
+            <dt>오늘</dt>
+              <dd>2,621</dd>
+            <dt>어제</dt>
+              <dd>3,568</dd>
+            <dt>최대</dt>
+              <dd>13,726</dd>
+            <dt>전체</dt>
+              <dd>14,284,358</dd>
+            <dt></dt>
+              <dd></dd>
+            <dt></dt>
+              <dd style="
+    font-weight: bold;
+    background: #f3e40d;
+    border-radius: 10px;
+    padding: 0px 0px;
+    margin: 0 30px 10px 10px;"><a href="https://open.kakao.com/o/sy4urnuc" target="_blank"><img src="/img/kakao_opentalk.png" style="width:100px; height:auto;"></a></dd>
+        </dl>
+    </div>
+</section>
+<!-- } 접속자집계 끝 -->					<span class="copyright">Copyright © 2018 tcpschool.co.,Ltd. All rights reserved. Contact webmaster for more information.</span>
+					<!-- <span class="tel">070-4334-1744</span> -->
+				</div>
+
+				<!-- <div class="cscenter">
+					<p class="title">CUSTOMER<br>CENTER</p>
+					<a href="tel:070-4334-1744;" class="tel">070-4334-1744</a>
+					<p class="time">평일 AM 09:00 ~ PM 18:00   /   주말, 공휴일 휴무</p>
+				</div> -->
+
+			</div>
+		</div>
+		<!-- /footerwrap -->
+	</div>
+	<!-- /wrap -->
+</div>
+<!--//sb-site-->
+
+
+
+<div id="fade" class="black_overlay"></div>
+
+<div id="popLayer" style="display:none; z-index:99">
+<div>팝업 레이어입니다.</div>
+<div>
+
+
+<!--
+<script>
+	(function($) {
+		$(document).ready(function() {
+			$.slidebars();
+		});
+	}) (jQuery);
+</script>
+-->
+
+
+
+<!-- } 하단 끝 -->
+
+<script>
+$(function() {
+    // 폰트 리사이즈 쿠키있으면 실행
+    font_resize("container", get_cookie("ck_font_resize_rmv_class"), get_cookie("ck_font_resize_add_class"));
+});
+
+$(window).resize(function() {
+	$(".gnbWrap").height( $(window).height() - 47);
+});
+$(document).ready(function() {
+	$(".gnbWrap").height( $(window).height() - 47);
+});
+</script>
+
+
+
+<!-- ie6,7에서 사이드뷰가 게시판 목록에서 아래 사이드뷰에 가려지는 현상 수정 -->
+<!--[if lte IE 7]>
+<script>
+$(function() {
+    var $sv_use = $(".sv_use");
+    var count = $sv_use.length;
+
+    $sv_use.each(function() {
+        $(this).css("z-index", count);
+        $(this).css("position", "relative");
+        count = count - 1;
+    });
+});
+</script>
+<![endif]-->
+
+</body>
+</html>

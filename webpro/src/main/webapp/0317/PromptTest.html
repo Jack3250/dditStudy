@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div {
+	border: 1px solid blue;
+}
+</style>
+<script>
+	function proc1() {
+		a = parseInt(prompt("수 1 입력","1~100"));
+		b = parseInt(prompt("수 2 입력"));
+		
+		add();
+		
+		res = `${a} + ${b} = ${sum}`;
+		
+		document.getElementById('result').innerText = res;
+		
+	}
+	
+	function add() {
+		sum = a+b;
+	}
+</script>
+
+</head>
+<body>
+<input type="button" value="확인" onclick="proc1()">
+<br><br>
+<div id="result"></div>
+</body>
+</html>

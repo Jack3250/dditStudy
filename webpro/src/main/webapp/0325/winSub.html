@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+
+</style>
+<script>
+const proc1 = () => {
+	vname = document.getElementById('name').value;
+
+	//부모창의 result1인 요소에 출력
+	opener.document.querySelector('#result1').innerHTML = vname;
+	
+	window.close();
+}
+
+</script>
+</head>
+<body>
+	<div class="box">
+		<h3></h3>
+		
+		이름 입력 <input type="text" id ="name">
+		<input type="button" value="확인" onclick="proc1()"> <br> <br>
+		<div id="result1"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+/* body{ */
+/* min-width: 700px; */
+/* 창크기를 줄였을 때 요소가 같이 줄어드는게 아닌 가려지게 하는 방법 */
+/* } */
+body * {
+	box-sizing: border-box;
+	/* 	content-box : 내용기준으로 크기 설정 */
+	/* 	border-box : 내용, border-width, padding 포함 margin은 외곽이기 때문에 미포함 */
+}
+
+#out {
+	border: 2px dotted red;
+	height: 400px;
+	margin: 20px;
+}
+
+h1 {
+	text-align: center;
+	background: #ffc0cb;
+	margin-left: 5px;
+	margin-right: 5px;
+	padding: 3px;
+}
+
+.in {
+	border: 1px solid green;
+	height: 75%;
+	margin: 5px;
+	padding: 5px;
+}
+
+#in1 {
+	width: calc(30% - 1%);
+	float: left;
+}
+
+#in2 {
+	width: calc(67% - 10px);
+	float: right;
+	font-size: 11px;
+	overflow: auto;
+	/*overflow: auto = 스크롤바 생성*/
+}
+
+img {
+	width: 100%;
+	height: 100%;
+}
+
+span {
+	background: yellow;
+	color: red;
+}
+
+#sp1 {
+	font-size: 1.2em;
+/* 	부모 기준(최상위 body의 기본값은 16px) em은 배수임 */
+/*  부모 기준 rem은 나누기임 */
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+	<div id="out">
+		<h1>Hello</h1>
+		<!-- 	사진과 내용의 높이가 같기 때문에 class요소를 사용 -->
+		<!-- 		class는 여러개의 요소에 동일한 서식을 줄 때 사용 -->
+		<div id="in1" class="in">
+			<img src="../images/국화1.jpg" alt="국화1.jpg">
+		</div>
+
+		<div id="in2" class="in">
+			국화는 관상용으로 널리 재배되므로 원예품종이 많다. 높이 1m 정도로 줄기 밑부분이 목질화하고, <span id="sp1">잎은
+				어긋나고 깃꼴로 갈라진다.</span> 꽃은 두상화로 줄기 끝에 피는데 가운데는 관상화, 주변부는 설상화이다. 설상화는 암술만 가진
+			단성화이고 관상화는 암수술을 모두 달고 있는 양성화이다. 꽃은 노란색·흰색빨간색 보라색 등 품종에 따라 다양하고 크기나
+			모양도 품종에 따라 다르다. 꽃 의 지름에 따라 18 cm 이상인 것을 대륜, 9cm 이상인 것을 중륜, 그 이하인 것을
+			소륜이라 구분 한다. 꽃잎의 형태에 따라 품종을 분류한다. 다른 꽃들과는 달리 기온이 낮은 가을 때 피는 특성 때문에 한국과
+			중국의 선인들은 은둔하면서 절개를 지키는 군자의 상징으로 여겨, 사군자의 하나 로 귀하게 여겼다. 이 때문에 동아시아에선
+			전통적으로 음력 9월 9일은 중양절(陽)이라 하여 국화차나 <span id="sp2">국화전을 부쳐 먹으며
+				꽃놀이를 하는 명절</span> 로 삼았다. 개량종이 많아서 관상용으로도 쓰 이고 식용으로도 쓰인다. 꽃은 꽃송이째로 말려서 차로 우려
+			마시는데, 크기가 큰 품종보단 작은 품종을 주로 쓴다. 날이 추워 입이 텄을 때 국화차를 마시면 좋다고 한다. 또한, 국화로
+			화전을 만 들어 먹을 수도 있다. 진딧물이 쉽게 꼬이는 화초중 하난데 화분에서 키울시 잠깐 방심한 사이에 잎하고 줄기
+			사이사이에 연병장 돌마냥 번식한 진딧물을 볼 수 있다. 진딧물 방제약을 하나 사두 고 기르는 것이 좋다. 화석상으로 최초
+			기록은 아르헨티나 남부 파타고니아 지역 바위에서 신생대 제3기 에오세(5580~3390만 년 전)에 만들어진 지층에서
+			발견되었다. # 최근 연구에서는 고생대 후반에 등장한 것으로 추정되는 화석이 나오기 했다. #4. 역사
+		</div>
+
+
+	</div>
+
+</body>
+</html>

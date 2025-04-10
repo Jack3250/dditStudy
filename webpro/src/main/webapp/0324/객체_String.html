@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+
+</style>
+<script>
+	const proc1 = () => {
+		let code = prompt("주민번호 입력 ex)000000-0000000");
+		
+		let yy = code.substr(0, 2);
+		let mm = code.slice(2, 4);
+		let dd = code.substring(4, 6);
+		
+		let gend = code.substr(7, 1);
+		let gender = "";
+		
+		if(gend == 1 || gend == 2) yy = "19".concat(yy);
+		else if(gend == 3 || gend == 4) yy = "20".concat(yy);
+		
+		if(gend == 1 || gend == 3) gender = "남자";
+		else if(gend == 2 || gend == 4) gender = "여자";
+		
+		let birthDay = new Date(yy, mm-1, dd);
+		
+		let today = new Date();
+		
+		let age = (today.getFullYear() - yy);
+		
+		str = `주민번호 : ${code.substring(0, 8)}****** <br>
+			   생일 : ${birthDay.toLocaleDateString()} <br>
+			   성별 : ${gender} <br>
+			   나이 : ${age}`;
+		
+		document.getElementById('result1').innerHTML = str;
+	}
+	const proc2 = () => {
+		let code = prompt("주민번호 입력 ex)000000-0000000");
+		
+		let rcode = code.replace("-", "");
+		let num = "234567892345";
+		
+		let sum = 0;
+		for(var i=0; i<num.length; i++) {
+			sum += rcode.charAt(i) * num.charAt(i);
+		}
+		
+		let gap = 11 - (sum % 11);
+		
+		gap %= 10;
+		
+		str = `${code.substr(0, 8)}****** <br>
+			   검증 결과 : `;
+		
+		if(rcode.charAt(rcode.length-1) == gap) str += "문제 없음";
+		else str += "문제 있음";
+		
+		document.getElementById('result2').innerHTML = str;
+	}
+	
+</script>
+</head>
+<body>
+	<div class="box">
+		<h3>prompt로 주민등록번호를 입력 받아 생년월일과 성별, 나이를 출력하는 프로그램</h3>
+		<input type="button" value="확인" onclick="proc1()"> <br> <br>
+		<div id="result1"></div>
+	</div>
+	
+	<div class="box">
+		<h3>주민등록번호 검증</h3>
+		<input type="button" value="확인" onclick="proc2()"> <br> <br>
+		<div id="result2"></div>
+	</div>
+</body>
+</html>
